@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Lock, Calendar, FolderOpen, BarChart3, Users, Share2, 
-  Kanban, PieChart, Plus, Search, FileText, CheckCircle2, 
-  Bell, FileSpreadsheet, Home, ArrowUp, Clock, HelpCircle, 
-  ExternalLink, FileWarning, Settings, HardDrive
+import {
+  Lock, Calendar, FolderOpen, BarChart3, Users, Share2,
+  Kanban, PieChart, Search, FileText,
+  FileSpreadsheet, ArrowUp, Settings
 } from 'lucide-react';
 import styles from './InteractiveTabs.module.css';
 
