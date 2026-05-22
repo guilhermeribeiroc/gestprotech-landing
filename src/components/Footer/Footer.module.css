@@ -1,0 +1,250 @@
+.footerSection {
+  background-color: var(--bg-void);
+  padding: 60px 32px 36px;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(45, 175, 197,0.08);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+  margin-bottom: 44px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+  }
+}
+
+/* Brand column */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 16px;
+}
+
+.logoImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--gold-border);
+  opacity: 0.88;
+}
+
+.brandName {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--text-bright);
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.brandDesc {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+  margin-bottom: 22px;
+  max-width: 280px;
+  font-weight: 300;
+}
+
+.creatorLink {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+}
+
+.creatorLabel {
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.22s ease;
+}
+
+.creatorName {
+  color: var(--gold-400);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.22s ease;
+}
+
+.creatorLink:hover .creatorLabel {
+  color: var(--gold-400);
+}
+
+.creatorLink:hover .creatorName {
+  color: var(--gold-200);
+}
+
+.arrowIcon {
+  color: var(--gold-400);
+  transition: transform 0.22s ease;
+  opacity: 0.7;
+}
+
+.creatorLink:hover .arrowIcon {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+/* Links column */
+.titleCol {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--text-bright);
+  font-size: 0.76rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.linkItem {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.22s ease;
+  letter-spacing: 0.01em;
+}
+
+.linkItem:hover {
+  color: var(--gold-300);
+}
+
+/* Contact column */
+.contactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+
+.contactCard:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.iconBox {
+  width: 34px;
+  height: 34px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactTitle {
+  font-family: var(--font-sans);
+  color: var(--text-bright);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.contactValue {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  margin-top: 1px;
+  font-weight: 400;
+}
+
+/* Divider and bottom row */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(45, 175, 197,0.1) 30%, rgba(45, 175, 197,0.1) 70%, transparent);
+  margin-bottom: 24px;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .bottomRow {
+    flex-direction: row;
+  }
+}
+
+.copyrightText a {
+  font-weight: 500;
+  color: var(--gold-400);
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+
+.copyrightText a:hover {
+  color: var(--gold-200);
+}
+
+.badgesRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.badgeItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.04em;
+}
+
+.badgeIcon {
+  color: var(--gold-500);
+  opacity: 0.6;
+}

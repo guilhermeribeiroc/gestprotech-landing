@@ -1,0 +1,302 @@
+.featuresSection {
+  background-color: var(--bg-void);
+  padding: 104px 32px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.featuresSection::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 0%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(45, 175, 197, 0.04), transparent 70%);
+  pointer-events: none;
+}
+
+.featuresSection::after {
+  content: '';
+  position: absolute;
+  bottom: 8%;
+  right: 0%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.025), transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.tagline {
+  font-family: var(--font-sans);
+  color: var(--gold-400);
+  font-weight: 500;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--text-bright);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* Feature grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-bottom: 1px;
+  border: 1px solid rgba(45, 175, 197,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(45, 175, 197,0.06);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featCard {
+  background: var(--bg-card);
+  padding: 32px;
+  transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featCard:hover {
+  background: var(--bg-card-hover);
+}
+
+.featCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(45, 175, 197,0.0), transparent);
+  transition: background 0.4s ease;
+}
+
+.featCard:hover::before {
+  background: linear-gradient(90deg, transparent, rgba(45, 175, 197,0.22), transparent);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease;
+}
+
+.featCard:hover .iconWrapper {
+  border-color: var(--gold-border);
+}
+
+.cardTitle {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: var(--text-bright);
+  margin-bottom: 3px;
+  letter-spacing: 0.01em;
+}
+
+.cardSubtitle {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 400;
+}
+
+/* Bullets */
+.bulletList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.checkIcon {
+  color: var(--gold-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+  opacity: 0.7;
+}
+
+/* Modo Imobiliário — special card */
+.imobCard {
+  background: linear-gradient(135deg, #041A0D 0%, #062B14 100%);
+  border: 1px solid rgba(74, 222, 128, 0.18);
+  border-radius: 4px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.imobCard::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.imobContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .imobContent {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.imobLeft {
+  flex: 1;
+}
+
+.imobHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.imobIcon {
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  width: 46px;
+  height: 46px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ade80;
+}
+
+.imobTitle {
+  font-family: var(--font-sans);
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.imobSubtitle {
+  font-family: var(--font-sans);
+  color: #86efac;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.imobDesc {
+  font-family: var(--font-sans);
+  color: #bbf7d0;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  max-width: 560px;
+  font-weight: 300;
+}
+
+.imobTagGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .imobTagGrid {
+    grid-template-columns: repeat(3, 1fr);
+    width: auto;
+  }
+}
+
+.imobTag {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: #d1fae5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.imobTagIcon {
+  color: #4ade80;
+  opacity: 0.8;
+}

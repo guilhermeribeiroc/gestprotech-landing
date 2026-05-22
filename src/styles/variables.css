@@ -1,0 +1,74 @@
+/* Design Tokens — GestProTech Deep Navy + Glacial Cyan */
+
+:root {
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+  /* Background depths — deep ocean navy */
+  --bg-void: #040C14;
+  --bg-surface: #060F1D;
+  --bg-card: #091521;
+  --bg-card-hover: #0C1A29;
+
+  /* Accent — glacial cyan (from reference image) */
+  --gold-600: #1878A0;
+  --gold-500: #2DAFC5;
+  --gold-400: #42C1D4;
+  --gold-300: #6DD4E4;
+  --gold-200: #98E2EE;
+  --gold-dim: rgba(45, 175, 197, 0.10);
+  --gold-border: rgba(45, 175, 197, 0.20);
+  --gold-border-strong: rgba(45, 175, 197, 0.42);
+
+  /* Text — cool blue-white */
+  --text-bright: #E2EFF5;
+  --text-secondary: #6B94A8;
+  --text-muted: #2E4A58;
+
+  /* Gradients */
+  --grad-gold: linear-gradient(135deg, #2DAFC5, #6DD4E4);
+  --grad-gold-text: linear-gradient(135deg, #42C1D4 0%, #98E2EE 50%, #2DAFC5 100%);
+  --grad-gold-hover: linear-gradient(135deg, #42C1D4, #98E2EE);
+
+  /* Status — system UI only */
+  --status-teal: #14B8A6;
+  --status-teal-dim: rgba(20, 184, 166, 0.12);
+  --status-violet: #8B5CF6;
+  --status-red: #EF4444;
+  --status-amber: #F59E0B;
+  --status-green: #22C55E;
+  --status-blue: #3B82F6;
+
+  /* Legacy aliases — system mockup uses these */
+  --teal-600: #0d9488;
+  --teal-500: #14b8a6;
+  --teal-400: #2dd4bf;
+  --teal-300: #5eead4;
+  --teal-100: #ccfbf1;
+  --teal-50: #f0fdfa;
+  --violet-700: #6d28d9;
+  --violet-600: #7c3aed;
+  --violet-500: #8b5cf6;
+  --violet-400: #a855f7;
+  --navy-950: #040C14;
+  --navy-900: #060F1D;
+  --navy-800: #091521;
+  --navy-700: #0C1A29;
+  --navy-600: #102234;
+  --navy-500: #143040;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
+
+  /* Transitions */
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: all 0.18s ease;
+}

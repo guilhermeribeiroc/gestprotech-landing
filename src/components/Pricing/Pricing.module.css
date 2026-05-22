@@ -1,0 +1,259 @@
+.pricingSection {
+  background-color: var(--bg-void);
+  padding: 104px 32px;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.pricingSection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse, rgba(45, 175, 197,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tagline {
+  font-family: var(--font-sans);
+  color: var(--gold-400);
+  font-weight: 500;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--text-bright);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.cardWrapper {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Pricing Card — Dark Luxury */
+.priceCard {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 52px 44px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 0 0 1px rgba(45, 175, 197,0.04), 0 24px 48px rgba(0, 0, 0, 0.4);
+}
+
+.priceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+}
+
+.priceCard:hover {
+  border-color: var(--gold-border-strong);
+  box-shadow: 0 0 0 1px rgba(45, 175, 197,0.06), 0 32px 64px rgba(0, 0, 0, 0.5), 0 0 60px rgba(45, 175, 197,0.04);
+}
+
+.badgeWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.planBadge {
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-300);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.priceHeader {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+}
+
+.currency {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin-top: 14px;
+}
+
+.amount {
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  font-weight: 600;
+  background: var(--grad-gold-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.centRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 14px;
+}
+
+.cents {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--gold-400);
+  line-height: 1;
+}
+
+.period {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+.dailyCost {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  margin-top: 14px;
+  font-weight: 400;
+}
+
+.dailyCostHighlight {
+  color: var(--gold-300);
+  font-weight: 500;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(45, 175, 197,0.12), transparent);
+  margin-bottom: 32px;
+}
+
+/* Bullets */
+.bulletsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.bulletIcon {
+  color: var(--gold-500);
+  flex-shrink: 0;
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
+.boldText {
+  color: var(--text-bright);
+  font-weight: 500;
+}
+
+/* CTA button */
+.ctaBtn {
+  background: var(--grad-gold);
+  color: var(--bg-void);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 17px 24px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  border: none;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(45, 175, 197,0.2);
+  margin-bottom: 18px;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(45, 175, 197,0.32);
+  color: var(--bg-void);
+}
+
+.footNote {
+  font-family: var(--font-sans);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
