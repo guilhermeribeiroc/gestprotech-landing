@@ -16,6 +16,7 @@ const Hero: React.FC = () => {
 
   useGSAP(() => {
     // 1. No mount: tudo começa invisível (gsap.set)
+    gsap.set(containerRef.current, { opacity: 0 });
     gsap.set(badgeRef.current, { opacity: 0, y: 15 });
     gsap.set(subheadlineRef.current, { opacity: 0, y: 30 });
     gsap.set(ctaRef.current, { opacity: 0, y: 30 });
