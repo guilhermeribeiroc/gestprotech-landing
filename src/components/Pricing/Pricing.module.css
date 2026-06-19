@@ -93,6 +93,26 @@
   box-shadow: 0 0 0 1px rgba(45, 175, 197,0.06), 0 32px 64px rgba(0, 0, 0, 0.5), 0 0 60px rgba(45, 175, 197,0.04);
 }
 
+/* Ribbon Copa do Mundo — sinalização de promoção sazonal */
+.promoRibbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #86EFAC;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 2px;
+  margin: 0 auto 22px;
+  width: fit-content;
+}
+
 .badgeWrapper {
   display: flex;
   justify-content: center;
@@ -165,8 +185,9 @@
 .period {
   font-family: var(--font-sans);
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .dailyCost {
@@ -175,6 +196,103 @@
   font-size: 0.84rem;
   margin-top: 14px;
   font-weight: 400;
+}
+
+/* Faixa de preço original tachado + tag de desconto */
+.originalPriceRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.originalPrice {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(74, 222, 128, 0.5);
+}
+
+.discountTag {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #07140D;
+  background: linear-gradient(135deg, #4ADE80, #22C55E);
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+/* Cupom estilo ticket — notches combinam com o fundo do card */
+.couponChip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px dashed rgba(74, 222, 128, 0.4);
+  border-radius: 3px;
+  padding: 11px 16px;
+  margin-top: 24px;
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+
+.couponChip::before,
+.couponChip::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.couponChip::before {
+  left: -5px;
+}
+
+.couponChip::after {
+  right: -5px;
+}
+
+.couponChip:hover {
+  background: rgba(34, 197, 94, 0.11);
+  border-color: rgba(74, 222, 128, 0.65);
+}
+
+.couponLabel {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.couponCode {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #86EFAC;
+}
+
+.couponChip svg {
+  color: #86EFAC;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .couponLabel {
+    display: none;
+  }
 }
 
 .dailyCostHighlight {

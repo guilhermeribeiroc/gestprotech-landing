@@ -1,5 +1,5 @@
 .heroSection {
-  padding-top: 148px;
+  padding-top: calc(148px + var(--promo-height));
   padding-bottom: 88px;
   position: relative;
   overflow: hidden;

@@ -39,6 +39,9 @@ const FinalCTA: React.FC = () => {
         <p className={styles.description}>
           Configure o GestProTech em menos de 5 minutos. 7 dias grátis, sem burocracia.
         </p>
+        <p className={styles.promoNote}>
+          🏆 Use o cupom <strong>COPA50</strong> e garanta 50% OFF na primeira mensalidade
+        </p>
         <div className={styles.buttonsRow}>
           <a 
             href="https://gestprotech.com.br/registrar/" 

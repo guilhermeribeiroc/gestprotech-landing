@@ -55,9 +55,24 @@
   color: var(--text-secondary);
   font-size: 1rem;
   max-width: 520px;
-  margin: 0 auto 48px;
+  margin: 0 auto 20px;
   line-height: 1.75;
   font-weight: 300;
+}
+
+.promoNote {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #86EFAC;
+  margin: 0 auto 40px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.promoNote strong {
+  color: #4ADE80;
+  letter-spacing: 0.04em;
 }
 
 .buttonsRow {

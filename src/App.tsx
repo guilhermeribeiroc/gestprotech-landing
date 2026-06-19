@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Importa os Componentes da Landing Page
 import BackgroundVideo from './components/BackgroundVideo/BackgroundVideo';
+import PromoBar from './components/PromoBar/PromoBar';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Stats from './components/Stats/Stats';
@@ -53,7 +54,10 @@ function App() {
     <>
       {/* Vídeo de background com overlay radial */}
       <BackgroundVideo />
-      
+
+      {/* Barra de promoção sazonal (Copa do Mundo / cupom COPA50) */}
+      <PromoBar />
+
       {/* Navbar suspensa estilo HUD */}
       <Navbar />
       
