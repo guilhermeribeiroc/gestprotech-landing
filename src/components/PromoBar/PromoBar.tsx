@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './PromoBar.module.css';
@@ -7,14 +7,6 @@ const PromoBar: React.FC = () => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    navigator.clipboard.writeText('COPA50');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   useGSAP(() => {
     // Entrada do HUD: desce e some o fade in
@@ -40,22 +32,13 @@ const PromoBar: React.FC = () => {
   const renderSet = (keyPrefix: string) => (
     <div className={styles.set} key={keyPrefix}>
       <span className={styles.item}>
-        <span className={styles.flag} aria-hidden="true">🏆</span> Copa do Mundo 2026 está chegando
+        Primeira mensalidade por <strong className={styles.highlight}>R$ 99,90</strong>
       </span>
-      <span className={styles.dot} aria-hidden="true">⚽</span>
-      <span className={styles.item}>
-        Cupom{' '}
-        <button className={styles.code} onClick={handleCopy} type="button" aria-label="Copiar cupom COPA50">
-          {copied ? 'COPIADO!' : 'COPA50'}
-        </button>
-      </span>
-      <span className={styles.dot} aria-hidden="true">⚽</span>
-      <span className={styles.item}>
-        <strong className={styles.highlight}>50% OFF</strong> na 1ª mensalidade
-      </span>
-      <span className={styles.dot} aria-hidden="true">⚽</span>
+      <span className={styles.dot} aria-hidden="true">•</span>
+      <span className={styles.item}>Sem cartão para ativar</span>
+      <span className={styles.dot} aria-hidden="true">•</span>
       <span className={styles.item}>Válido por tempo limitado</span>
-      <span className={styles.dot} aria-hidden="true">⚽</span>
+      <span className={styles.dot} aria-hidden="true">•</span>
     </div>
   );
 

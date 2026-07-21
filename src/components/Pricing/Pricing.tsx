@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Star, CheckCircle2, Rocket, Trophy, Copy, Check } from 'lucide-react';
+import { Star, CheckCircle2, Rocket } from 'lucide-react';
 import styles from './Pricing.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,13 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Pricing: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText('COPA50');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
-  };
 
   useGSAP(() => {
     // Fade-in para o cabeçalho
@@ -75,11 +68,6 @@ const Pricing: React.FC = () => {
         <div className={styles.cardWrapper}>
           <div ref={cardRef} className={styles.priceCard}>
 
-            {/* Ribbon Copa do Mundo */}
-            <div className={styles.promoRibbon}>
-              <Trophy size={12} /> Promoção Copa do Mundo 2026
-            </div>
-
             {/* Badge */}
             <div className={styles.badgeWrapper}>
               <span className={styles.planBadge}>
@@ -91,30 +79,19 @@ const Pricing: React.FC = () => {
             <div className={styles.priceHeader}>
               <div className={styles.originalPriceRow}>
                 <span className={styles.originalPrice}>R$ 129,90/mês</span>
-                <span className={styles.discountTag}>-50%</span>
+                <span className={styles.discountTag}>-23%</span>
               </div>
               <div className={styles.priceRow}>
                 <span className={styles.currency}>R$</span>
-                <span className={styles.amount}>64</span>
+                <span className={styles.amount}>99</span>
                 <div className={styles.centRow}>
-                  <span className={styles.cents}>,95</span>
+                  <span className={styles.cents}>,90</span>
                   <span className={styles.period}>1ª mensalidade</span>
                 </div>
               </div>
               <p className={styles.dailyCost}>
                 Depois, <strong className={styles.dailyCostHighlight}>R$ 129,90/mês</strong> — cancele quando quiser
               </p>
-
-              <button
-                className={styles.couponChip}
-                onClick={handleCopy}
-                type="button"
-                aria-label="Copiar cupom COPA50"
-              >
-                <span className={styles.couponLabel}>Use o cupom no checkout</span>
-                <span className={styles.couponCode}>{copied ? 'Copiado!' : 'COPA50'}</span>
-                {copied ? <Check size={14} /> : <Copy size={14} />}
-              </button>
             </div>
 
             {/* Benefits List */}

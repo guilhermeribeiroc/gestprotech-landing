@@ -55,7 +55,7 @@ function App() {
       {/* Vídeo de background com overlay radial */}
       <BackgroundVideo />
 
-      {/* Barra de promoção sazonal (Copa do Mundo / cupom COPA50) */}
+      {/* Barra de promoção: primeira mensalidade por R$99,90 */}
       <PromoBar />
 
       {/* Navbar suspensa estilo HUD */}
