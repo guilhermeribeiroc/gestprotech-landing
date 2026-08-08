@@ -1,5 +1,8 @@
 .ctaSection {
-  background-color: var(--bg-surface);
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(45, 175, 197, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse at 88% 85%, rgba(74, 222, 128, 0.10) 0%, transparent 45%),
+    var(--bg-surface);
   padding: 112px 32px;
   position: relative;
   overflow: hidden;
@@ -15,7 +18,7 @@
   transform: translate(-50%, -50%);
   width: 700px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(45, 175, 197,0.06) 0%, transparent 65%);
+  background: radial-gradient(ellipse, rgba(45, 175, 197,0.08) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -107,6 +110,25 @@
   cursor: pointer;
   box-shadow: 0 8px 28px rgba(45, 175, 197,0.2);
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.primaryBtn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.primaryBtn:hover::after {
+  left: 130%;
 }
 
 @media (min-width: 640px) {

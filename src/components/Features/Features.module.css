@@ -13,7 +13,7 @@
   left: 0%;
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(45, 175, 197, 0.04), transparent 70%);
+  background: radial-gradient(circle, rgba(45, 175, 197, 0.09), transparent 70%);
   pointer-events: none;
 }
 
@@ -24,7 +24,7 @@
   right: 0%;
   width: 560px;
   height: 560px;
-  background: radial-gradient(circle, rgba(20, 184, 166, 0.025), transparent 70%);
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.07), transparent 70%);
   pointer-events: none;
 }
 
@@ -95,13 +95,17 @@
 .featCard {
   background: var(--bg-card);
   padding: 32px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .featCard:hover {
   background: var(--bg-card-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(15, 36, 64, 0.1);
+  z-index: 2;
 }
 
 .featCard::before {
@@ -159,11 +163,12 @@
   justify-content: center;
   flex-shrink: 0;
   border: 1px solid rgba(15, 36, 64, 0.08);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .featCard:hover .iconWrapper {
   border-color: var(--gold-border);
+  transform: scale(1.08) rotate(-4deg);
 }
 
 .cardTitle {
