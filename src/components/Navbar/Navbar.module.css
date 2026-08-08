@@ -15,7 +15,7 @@
 }
 
 .scrolled {
-  background: rgba(7, 7, 10, 0.86);
+  background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--gold-border);
@@ -109,7 +109,7 @@
 .ctaBtn {
   background: transparent;
   border: 1px solid var(--gold-border);
-  color: var(--gold-300);
+  color: var(--gold-600);
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: 0.78rem;
@@ -128,5 +128,5 @@
 .ctaBtn:hover {
   background: var(--gold-dim);
   border-color: var(--gold-400);
-  color: var(--gold-200);
+  color: var(--gold-700);
 }

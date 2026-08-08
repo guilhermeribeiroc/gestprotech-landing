@@ -1,34 +1,38 @@
-/* Design Tokens — GestProTech Deep Navy + Glacial Cyan */
+/* Design Tokens — GestProTech Light + Glacial Cyan */
 
 :root {
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 
-  /* Background depths — deep ocean navy */
-  --bg-void: #040C14;
-  --bg-surface: #060F1D;
-  --bg-card: #091521;
-  --bg-card-hover: #0C1A29;
+  /* Background depths — clean white with soft cool-gray surfaces */
+  --bg-void: #FFFFFF;
+  --bg-surface: #F5F8FA;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F2F7F8;
 
-  /* Accent — glacial cyan (from reference image) */
-  --gold-600: #1878A0;
+  /* Dark ink — used as text on accent-colored buttons/gradients */
+  --ink: #06222C;
+
+  /* Accent — glacial cyan (from reference image), tuned for AA contrast on white */
+  --gold-700: #0B5566;
+  --gold-600: #0E7490;
   --gold-500: #2DAFC5;
   --gold-400: #42C1D4;
   --gold-300: #6DD4E4;
   --gold-200: #98E2EE;
-  --gold-dim: rgba(45, 175, 197, 0.10);
-  --gold-border: rgba(45, 175, 197, 0.20);
+  --gold-dim: rgba(45, 175, 197, 0.08);
+  --gold-border: rgba(45, 175, 197, 0.22);
   --gold-border-strong: rgba(45, 175, 197, 0.42);
 
-  /* Text — cool blue-white */
-  --text-bright: #E2EFF5;
-  --text-secondary: #6B94A8;
-  --text-muted: #2E4A58;
+  /* Text — dark navy on white */
+  --text-bright: #0F2440;
+  --text-secondary: #47617A;
+  --text-muted: #64748B;
 
   /* Gradients */
   --grad-gold: linear-gradient(135deg, #2DAFC5, #6DD4E4);
-  --grad-gold-text: linear-gradient(135deg, #42C1D4 0%, #98E2EE 50%, #2DAFC5 100%);
+  --grad-gold-text: linear-gradient(135deg, #0E7490 0%, #2DAFC5 50%, #42C1D4 100%);
   --grad-gold-hover: linear-gradient(135deg, #42C1D4, #98E2EE);
 
   /* Status — system UI only */

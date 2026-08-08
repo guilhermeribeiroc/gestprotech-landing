@@ -17,7 +17,7 @@ const Stats: React.FC = () => {
     // 1. Anima +300
     const obj1 = { val: 0 };
     gsap.to(obj1, {
-      val: 300,
+      val: 850,
       scrollTrigger: {
         trigger: num1Ref.current,
         start: 'top 88%',

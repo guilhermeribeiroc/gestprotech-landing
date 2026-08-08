@@ -2,10 +2,11 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { 
-  Users, FolderOpen, AlarmClock, Calendar, RefreshCw, BarChart3, 
-  FileText, FileEdit, Kanban, Share2, FileSpreadsheet, PieChart, 
-  CheckCircle2, Home, Landmark, Building, MapPin, ClipboardList, Layers
+import {
+  Users, FolderOpen, AlarmClock, Calendar, RefreshCw, BarChart3,
+  FileText, FileEdit, Kanban, Share2, FileSpreadsheet, PieChart,
+  CheckCircle2, Home, Landmark, Building, MapPin, ClipboardList, Layers,
+  Newspaper
 } from 'lucide-react';
 import styles from './Features.module.css';
 
@@ -19,6 +20,7 @@ interface FeatureItem {
   bgGrad: string;
   borderColor: string;
   bullets: string[];
+  highlight?: boolean;
 }
 
 const Features: React.FC = () => {
@@ -87,14 +89,29 @@ const Features: React.FC = () => {
       title: "Controle de Processos",
       subtitle: "Gestão jurídica completa",
       icon: FolderOpen,
-      iconColor: "#cbd5e1",
-      bgGrad: "linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))",
-      borderColor: "rgba(255, 255, 255, 0.08)",
+      iconColor: "#475569",
+      bgGrad: "linear-gradient(135deg, rgba(15, 36, 64, 0.06), rgba(15, 36, 64, 0.02))",
+      borderColor: "rgba(15, 36, 64, 0.1)",
       bullets: [
         "Esfera, área do direito e tipo de benefício",
         "Polo passivo com qualificação completa",
         "Vara, comarca, tribunal e chave de acesso",
         "Resultado, acordo e arquivamento de processos"
+      ]
+    },
+    {
+      title: "Publicações por OAB",
+      subtitle: "Monitoramento automático 24h",
+      icon: Newspaper,
+      iconColor: "#0e7490",
+      bgGrad: "linear-gradient(135deg, rgba(45, 175, 197, 0.14), rgba(45, 175, 197, 0.03))",
+      borderColor: "rgba(45, 175, 197, 0.3)",
+      highlight: true,
+      bullets: [
+        "Busca automática de publicações pela sua OAB",
+        "Monitoramento contínuo via DJEN, 24 horas por dia",
+        "Alertas de novas publicações e intimações",
+        "Sem custo adicional — incluso em qualquer plano"
       ]
     },
     {
@@ -171,9 +188,9 @@ const Features: React.FC = () => {
       title: "Modelos e Geração de Docs",
       subtitle: "Documentos gerados automaticamente",
       icon: FileEdit,
-      iconColor: "#cbd5e1",
-      bgGrad: "linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))",
-      borderColor: "rgba(255, 255, 255, 0.08)",
+      iconColor: "#475569",
+      bgGrad: "linear-gradient(135deg, rgba(15, 36, 64, 0.06), rgba(15, 36, 64, 0.02))",
+      borderColor: "rgba(15, 36, 64, 0.1)",
       bullets: [
         "Procuração gerada com dados do processo",
         "Contrato de honorários em PDF",
@@ -258,13 +275,16 @@ const Features: React.FC = () => {
           {featuresList.map((feat, index) => {
             const Icon = feat.icon;
             return (
-              <div 
-                key={index} 
-                className={styles.featCard}
+              <div
+                key={index}
+                className={`${styles.featCard} ${feat.highlight ? styles.featCardHighlight : ''}`}
               >
+                {feat.highlight && (
+                  <div className={styles.highlightTag}>24h · Sem custo adicional</div>
+                )}
                 <div className={styles.cardHeader}>
-                  <div 
-                    className={styles.iconWrapper} 
+                  <div
+                    className={styles.iconWrapper}
                     style={{ background: feat.bgGrad, borderColor: feat.borderColor }}
                   >
                     <Icon size={22} color={feat.iconColor} />

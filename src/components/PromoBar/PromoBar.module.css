@@ -5,7 +5,7 @@
   right: 0;
   height: var(--promo-height);
   z-index: 110;
-  background: linear-gradient(90deg, #07140D 0%, #0B2318 50%, #07140D 100%);
+  background: linear-gradient(90deg, #EFFDF6 0%, #E3FBF0 50%, #EFFDF6 100%);
   border-bottom: 1px solid rgba(34, 197, 94, 0.22);
   overflow: hidden;
   display: flex;
@@ -47,7 +47,7 @@
 }
 
 .highlight {
-  color: #4ADE80;
+  color: #15803D;
   font-weight: 700;
 }
 

@@ -32,7 +32,7 @@
 
 .tagline {
   font-family: var(--font-sans);
-  color: var(--gold-400);
+  color: var(--gold-600);
   font-weight: 500;
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -74,7 +74,7 @@
   position: relative;
   overflow: hidden;
   transition: border-color 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0 0 0 1px rgba(45, 175, 197,0.04), 0 24px 48px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 1px rgba(45, 175, 197,0.05), 0 24px 48px rgba(15, 36, 64, 0.1);
 }
 
 .priceCard::before {
@@ -90,7 +90,7 @@
 
 .priceCard:hover {
   border-color: var(--gold-border-strong);
-  box-shadow: 0 0 0 1px rgba(45, 175, 197,0.06), 0 32px 64px rgba(0, 0, 0, 0.5), 0 0 60px rgba(45, 175, 197,0.04);
+  box-shadow: 0 0 0 1px rgba(45, 175, 197,0.08), 0 32px 64px rgba(15, 36, 64, 0.14), 0 0 60px rgba(45, 175, 197,0.05);
 }
 
 .badgeWrapper {
@@ -102,7 +102,7 @@
 .planBadge {
   background: var(--gold-dim);
   border: 1px solid var(--gold-border);
-  color: var(--gold-300);
+  color: var(--gold-700);
   font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 500;
@@ -158,7 +158,7 @@
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--gold-400);
+  color: var(--gold-600);
   line-height: 1;
 }
 
@@ -208,7 +208,7 @@
 }
 
 .dailyCostHighlight {
-  color: var(--gold-300);
+  color: var(--gold-600);
   font-weight: 500;
 }
 
@@ -253,7 +253,7 @@
 /* CTA button */
 .ctaBtn {
   background: var(--grad-gold);
-  color: var(--bg-void);
+  color: var(--ink);
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.9rem;
@@ -276,7 +276,7 @@
 .ctaBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 36px rgba(45, 175, 197,0.32);
-  color: var(--bg-void);
+  color: var(--ink);
 }
 
 .footNote {

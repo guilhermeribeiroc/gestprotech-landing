@@ -6,7 +6,7 @@ interface BackgroundVideoProps {
 }
 
 const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
-  videoSrc = 'https://cdn.pixabay.com/video/2020/09/24/51090-464871903_large.mp4' // Vídeo abstrato dark tech de alta qualidade
+  videoSrc // sem vídeo por padrão — tema claro usa apenas o gradiente suave
 }) => {
   return (
     <div className={styles.videoContainer}>

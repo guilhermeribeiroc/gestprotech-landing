@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { Rocket, Play, ShieldCheck, Cloud, Headset } from 'lucide-react';
+import { Rocket, Play, ShieldCheck, Cloud, Newspaper } from 'lucide-react';
 import styles from './Hero.module.css';
 
 const Hero: React.FC = () => {
@@ -167,11 +167,11 @@ const Hero: React.FC = () => {
             <Cloud size={16} /> Acesso imediato na nuvem
           </span>
           <span className={styles.trustItem}>
-            <Headset size={16} /> Suporte VIP incluso
+            <Newspaper size={16} /> Publicações por OAB, 24h, grátis
           </span>
         </div>
 
-        {/* Laptop Mockup */}
+        {/* Laptop Mockup — screenshot real do sistema */}
         <div ref={mockupRef} className={styles.mockupWrapper}>
           <div className={styles.laptopScreen}>
             <div className={styles.sysHeader}>
@@ -182,79 +182,11 @@ const Hero: React.FC = () => {
                 <span className={styles.urlText}>gestprotech.com.br</span>
               </div>
             </div>
-            <div className={styles.sysBody}>
-              {/* Sidebar */}
-              <div className={styles.sidebar}>
-                <div className={styles.sbLogoBox}>
-                  <img src="/LOGOGEST.png" alt="logo" className={styles.sbLogoImg} />
-                  <span className={styles.sbLogoText}>GESTPROTECH</span>
-                </div>
-                <div className={`${styles.sbItem} ${styles.sbActive}`}><i className="bi bi-speedometer2"></i> Painel</div>
-                <div className={styles.sbItem}><i className="bi bi-people"></i> Clientes</div>
-                <div className={styles.sbItem}><i className="bi bi-folder2-open"></i> Processos</div>
-                <div className={styles.sbItem}><i className="bi bi-calendar3"></i> Agenda</div>
-                <div className={styles.sbItem}><i className="bi bi-bank"></i> Financeiro</div>
-                <div className={styles.sbItem}><i className="bi bi-diagram-3"></i> Parcerias</div>
-              </div>
-
-              {/* Workspace */}
-              <div className={styles.sysContent}>
-                {/* KPIs */}
-                <div className={styles.kpiGrid}>
-                  <div className={styles.kpiCard}>
-                    <div className={styles.kpiLabel}>Processos</div>
-                    <div className={styles.kpiValue}>47</div>
-                  </div>
-                  <div className={styles.kpiCard} style={{ borderColor: 'rgba(45, 212, 191, 0.4)' }}>
-                    <div className={styles.kpiLabel}>Clientes</div>
-                    <div className={styles.kpiValue} style={{ color: '#14b8a6' }}>31</div>
-                  </div>
-                  <div className={styles.kpiCard}>
-                    <div className={styles.kpiLabel}>Honorários</div>
-                    <div className={styles.kpiValue}>R$12k</div>
-                  </div>
-                  <div className={styles.kpiCard} style={{ borderColor: 'rgba(124, 58, 237, 0.3)' }}>
-                    <div className={styles.kpiLabel}>Prazos Hoje</div>
-                    <div className={styles.kpiValue} style={{ color: '#7c3aed' }}>3</div>
-                  </div>
-                </div>
-
-                {/* Grid */}
-                <div className={styles.subGrid}>
-                  <div className={styles.panelCard}>
-                    <div className={styles.panelTitle}>Processos Urgentes</div>
-                    <div className={styles.panelRow}>
-                      <span style={{ fontWeight: 700, color: '#0f2440' }}>João M. Silva</span>
-                      <span style={{ color: '#64748b', fontSize: '0.6rem' }}>Previdenciário</span>
-                      <span className={styles.badgeRed}>Urgente</span>
-                    </div>
-                    <div className={styles.panelRow}>
-                      <span style={{ fontWeight: 700, color: '#0f2440' }}>Maria Santos</span>
-                      <span style={{ color: '#64748b', fontSize: '0.6rem' }}>Trabalhista</span>
-                      <span className={styles.badgeAmber}>Atenção</span>
-                    </div>
-                    <div className={styles.panelRow}>
-                      <span style={{ fontWeight: 700, color: '#0f2440' }}>Carlos Pereira</span>
-                      <span style={{ color: '#64748b', fontSize: '0.6rem' }}>Civil</span>
-                      <span className={styles.badgeGreen}>Em dia</span>
-                    </div>
-                  </div>
-
-                  <div className={styles.panelCard} style={{ borderColor: 'rgba(45, 212, 191, 0.25)' }}>
-                    <div className={styles.panelTitle}>Agenda Hoje</div>
-                    <div className={styles.agendaItem}>
-                      <span className={styles.agendaTime} style={{ color: '#2dd4bf' }}>09h</span> Audiência
-                    </div>
-                    <div className={styles.agendaItem}>
-                      <span className={styles.agendaTime} style={{ color: '#7c3aed' }}>14h</span> Perícia Méd.
-                    </div>
-                    <div className={styles.agendaItem}>
-                      <span className={styles.agendaTime} style={{ color: '#f59e0b' }}>16h</span> Atendimento
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img
+              src="/screenshots/painel-geral.jpg"
+              alt="Painel do GestProTech em uso real"
+              className={styles.screenshotImg}
+            />
           </div>
           <div className={styles.laptopBase}></div>
           <div className={styles.laptopStand}></div>

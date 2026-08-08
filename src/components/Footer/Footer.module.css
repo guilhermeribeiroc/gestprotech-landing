@@ -83,7 +83,7 @@
 }
 
 .creatorName {
-  color: var(--gold-400);
+  color: var(--gold-600);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -91,15 +91,15 @@
 }
 
 .creatorLink:hover .creatorLabel {
-  color: var(--gold-400);
+  color: var(--gold-600);
 }
 
 .creatorLink:hover .creatorName {
-  color: var(--gold-200);
+  color: var(--gold-700);
 }
 
 .arrowIcon {
-  color: var(--gold-400);
+  color: var(--gold-600);
   transition: transform 0.22s ease;
   opacity: 0.7;
 }
@@ -140,7 +140,7 @@
 }
 
 .linkItem:hover {
-  color: var(--gold-300);
+  color: var(--gold-600);
 }
 
 /* Contact column */
@@ -161,7 +161,7 @@
 }
 
 .contactCard:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(15, 36, 64, 0.03);
 }
 
 .iconBox {
@@ -222,13 +222,13 @@
 
 .copyrightText a {
   font-weight: 500;
-  color: var(--gold-400);
+  color: var(--gold-600);
   text-decoration: none;
   transition: color 0.22s ease;
 }
 
 .copyrightText a:hover {
-  color: var(--gold-200);
+  color: var(--gold-700);
 }
 
 .badgesRow {

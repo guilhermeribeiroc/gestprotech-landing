@@ -40,7 +40,7 @@
 
 .tagline {
   font-family: var(--font-sans);
-  color: var(--gold-400);
+  color: var(--gold-600);
   font-weight: 500;
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -119,6 +119,30 @@
   background: linear-gradient(90deg, transparent, rgba(45, 175, 197,0.22), transparent);
 }
 
+.featCardHighlight {
+  background: linear-gradient(180deg, rgba(45, 175, 197, 0.05), var(--bg-card) 40%);
+}
+
+.featCardHighlight::before {
+  background: linear-gradient(90deg, transparent, rgba(45, 175, 197,0.4), transparent);
+}
+
+.highlightTag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0E7490, #2DAFC5);
+  padding: 4px 9px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
 .cardHeader {
   display: flex;
   align-items: flex-start;
@@ -134,7 +158,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(15, 36, 64, 0.08);
   transition: border-color 0.3s ease;
 }
 
