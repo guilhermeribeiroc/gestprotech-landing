@@ -57,8 +57,8 @@ const Navbar: React.FC = () => {
           <a href="#contato" className={styles.navLink}>Contato</a>
         </div>
 
-        <a href="https://gestprotech.com.br/login/" className={styles.ctaBtn}>
-          Entrar <ArrowRight size={16} />
+        <a href="https://gestprotech.com.br/registrar/" className={styles.ctaBtn}>
+          Começar Grátis <ArrowRight size={16} />
         </a>
       </div>
     </nav>

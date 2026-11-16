@@ -150,8 +150,8 @@ const Hero: React.FC = () => {
 
         {/* CTAs */}
         <div ref={ctaRef} className={styles.ctaContainer}>
-          <a href="#preco" className={styles.primaryBtn}>
-            <Rocket size={18} /> Conhecer os planos
+          <a href="https://gestprotech.com.br/registrar/" className={styles.primaryBtn}>
+            <Rocket size={18} /> Começar Agora — 7 Dias Grátis
           </a>
           <a href="#demo" className={styles.ghostBtn}>
             <Play size={18} /> Ver o Sistema
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
             <ShieldCheck size={16} /> Sem cartão para ativar
           </span>
           <span className={styles.trustItem}>
-            <Cloud size={16} /> Gestão na nuvem
+            <Cloud size={16} /> Acesso imediato na nuvem
           </span>
           <span className={styles.trustItem}>
             <Newspaper size={16} /> Publicações por OAB, 24h, grátis
