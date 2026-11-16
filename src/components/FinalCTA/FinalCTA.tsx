@@ -37,17 +37,17 @@ const FinalCTA: React.FC = () => {
           Pronto para transformar<br />a gestão do seu escritório?
         </h2>
         <p className={styles.description}>
-          Configure o GestProTech em menos de 5 minutos. 7 dias grátis, sem burocracia.
+          Escolha seu plano, confirme as condições e conte com a equipe para começar.
         </p>
         <p className={styles.promoNote}>
-          Primeira mensalidade por apenas <strong>R$ 99,90</strong>
+          Gestão organizada, do atendimento ao financeiro.
         </p>
         <div className={styles.buttonsRow}>
           <a 
-            href="https://gestprotech.com.br/registrar/" 
+            href="#preco"
             className={styles.primaryBtn}
           >
-            <Rocket size={16} fill="currentColor" /> Começar Agora — 7 Dias Grátis
+            <Rocket size={16} fill="currentColor" /> Escolher meu plano
           </a>
           <a 
             href="https://wa.me/5588993699357" 

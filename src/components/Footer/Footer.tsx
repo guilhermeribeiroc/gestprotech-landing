@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
               <li><a href="#preco" className={styles.linkItem}>Preço</a></li>
               <li>
                 <a 
-                  href="https://gestprotech.com.br/registrar/" 
+                  href="https://gestprotech.com.br/login/"
                   className={styles.linkItem}
                 >
                   Acessar GestProTech
