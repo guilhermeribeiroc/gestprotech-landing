@@ -1,30 +1,13 @@
 import React from 'react';
 import styles from './BackgroundVideo.module.css';
 
-interface BackgroundVideoProps {
-  videoSrc?: string;
-}
-
-const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
-  videoSrc // sem vídeo por padrão — tema claro usa apenas o gradiente suave
-}) => {
-  return (
-    <div className={styles.videoContainer}>
-      <div className={styles.fallbackBg} />
-      {videoSrc && (
-        <video
-          className={styles.videoBg}
-          src={videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls={false}
-        />
-      )}
-      <div className={styles.overlay} />
-    </div>
-  );
-};
+/** Fundo da página: brilhos suaves + grade sutil. Sem vídeo, leve e estático. */
+const BackgroundVideo: React.FC = () => (
+  <div className={styles.bg} aria-hidden="true">
+    <div className={styles.glowYellow} />
+    <div className={styles.glowCyan} />
+    <div className={styles.grid} />
+  </div>
+);
 
 export default BackgroundVideo;

@@ -90,19 +90,19 @@ const Stats: React.FC = () => {
   return (
     <section ref={sectionRef} className={styles.statsSection}>
       <div className={styles.container}>
-        <div className={styles.statItem}>
+        <div className={styles.statItem} data-reveal="scale" data-reveal-delay="0">
           <div ref={num1Ref} className={styles.statNumber}>+0</div>
           <p className={styles.statLabel}>Processos gerenciados</p>
         </div>
-        <div className={styles.statItem}>
+        <div className={styles.statItem} data-reveal="scale" data-reveal-delay="0.12">
           <div ref={num2Ref} className={styles.statNumber}>0%</div>
           <p className={styles.statLabel}>Uptime garantido</p>
         </div>
-        <div className={styles.statItem}>
+        <div className={styles.statItem} data-reveal="scale" data-reveal-delay="0.24">
           <div ref={num3Ref} className={styles.statNumber}>0 dias</div>
           <p className={styles.statLabel}>Grátis para testar</p>
         </div>
-        <div className={styles.statItem}>
+        <div className={styles.statItem} data-reveal="scale" data-reveal-delay="0.36">
           <div ref={num4Ref} className={styles.statNumber}>0h</div>
           <p className={styles.statLabel}>Suporte VIP respondendo</p>
         </div>

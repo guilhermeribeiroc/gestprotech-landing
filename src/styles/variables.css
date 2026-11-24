@@ -1,81 +1,54 @@
-/* Design Tokens — GestProTech Light + Glacial Cyan */
+/* Design Tokens — GestProTech · Black Friday (preto + amarelo neon + ciano da marca) */
 
 :root {
   /* Typography */
-  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-display: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 
-  /* Background depths — clean white with soft cool-gray surfaces */
-  --bg-void: #FFFFFF;
-  --bg-surface: #F5F8FA;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F2F7F8;
+  /* Surfaces */
+  --bg-void: #05080f;
+  --bg-surface: #0a1018;
+  --bg-card: #0f1724;
+  --bg-card-hover: #131d2e;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
 
-  /* Dark ink — used as text on accent-colored buttons/gradients */
-  --ink: #06222C;
+  /* Text (all >= 4.5:1 on --bg-void) */
+  --text-bright: #f4f7fb;
+  --text-secondary: #b3bfd0;
+  --text-muted: #8a98ad;
 
-  /* Accent — glacial cyan (from reference image), tuned for AA contrast on white */
-  --gold-700: #0B5566;
-  --gold-600: #0E7490;
-  --gold-500: #2DAFC5;
-  --gold-400: #42C1D4;
-  --gold-300: #6DD4E4;
-  --gold-200: #98E2EE;
-  --gold-dim: rgba(45, 175, 197, 0.08);
-  --gold-border: rgba(45, 175, 197, 0.22);
-  --gold-border-strong: rgba(45, 175, 197, 0.42);
+  /* Black Friday — amarelo neon + preto */
+  --bf-300: #fff08a;
+  --bf-400: #ffe14d;
+  --bf-500: #ffd60a;
+  --bf-600: #f5c400;
+  --bf-ink: #0a0800;
+  --bf-glow: rgba(255, 214, 10, 0.45);
+  --bf-dim: rgba(255, 214, 10, 0.1);
+  --bf-border: rgba(255, 214, 10, 0.34);
 
-  /* Text — dark navy on white */
-  --text-bright: #0F2440;
-  --text-secondary: #47617A;
-  --text-muted: #64748B;
+  /* Brand — glacial cyan (logo) */
+  --cyan-300: #7fe0ee;
+  --cyan-400: #42c1d4;
+  --cyan-500: #2dafc5;
+  --cyan-600: #0e7490;
+  --cyan-dim: rgba(66, 193, 212, 0.1);
+  --cyan-border: rgba(66, 193, 212, 0.3);
 
-  /* Gradients */
-  --grad-gold: linear-gradient(135deg, #2DAFC5, #6DD4E4);
-  --grad-gold-text: linear-gradient(135deg, #0E7490 0%, #2DAFC5 50%, #42C1D4 100%);
-  --grad-gold-hover: linear-gradient(135deg, #42C1D4, #98E2EE);
+  /* Status */
+  --green: #25d366;
+  --red: #ff6b6b;
+  --amber: #fbbf24;
 
-  /* Status — system UI only */
-  --status-teal: #14B8A6;
-  --status-teal-dim: rgba(20, 184, 166, 0.12);
-  --status-violet: #8B5CF6;
-  --status-red: #EF4444;
-  --status-amber: #F59E0B;
-  --status-green: #22C55E;
-  --status-blue: #3B82F6;
+  /* Radii / motion */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Legacy aliases — system mockup uses these */
-  --teal-600: #0d9488;
-  --teal-500: #14b8a6;
-  --teal-400: #2dd4bf;
-  --teal-300: #5eead4;
-  --teal-100: #ccfbf1;
-  --teal-50: #f0fdfa;
-  --violet-700: #6d28d9;
-  --violet-600: #7c3aed;
-  --violet-500: #8b5cf6;
-  --violet-400: #a855f7;
-  --navy-950: #040C14;
-  --navy-900: #060F1D;
-  --navy-800: #091521;
-  --navy-700: #0C1A29;
-  --navy-600: #102234;
-  --navy-500: #143040;
-  --slate-900: #0f172a;
-  --slate-800: #1e293b;
-  --slate-700: #334155;
-  --slate-600: #475569;
-  --slate-500: #64748b;
-  --slate-400: #94a3b8;
-  --slate-300: #cbd5e1;
-  --slate-200: #e2e8f0;
-  --slate-100: #f1f5f9;
-  --slate-50: #f8fafc;
-
-  /* Transitions */
-  --transition-smooth: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --transition-fast: all 0.18s ease;
-
-  /* Promo bar (seasonal campaigns) */
-  --promo-height: 42px;
+  /* Layout */
+  --promo-height: 44px;
+  --container: 1200px;
 }
