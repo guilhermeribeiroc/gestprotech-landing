@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Rocket } from 'lucide-react';
 import Countdown from '../Countdown/Countdown';
-import { REGISTER_URL, WHATSAPP_URL, PRICE_PROMO, PROMO_END_LABEL } from '../../config/promo';
+import { REGISTER_URL, WHATSAPP_URL, PRICE_UNDER, SLOTS, PROMO_END_LABEL } from '../../config/promo';
 import styles from './FinalCTA.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -32,10 +32,10 @@ const FinalCTA: React.FC = () => {
         <div className={styles.glow} aria-hidden="true" />
         <p className={styles.kicker}>Últimos dias de Black Friday</p>
         <h2 className={styles.title}>
-          Pare de perder prazo.<br /><em>Comece hoje por {PRICE_PROMO.full}.</em>
+          Pare de perder prazo.<br /><em>Comece hoje por menos de {PRICE_UNDER}/mês.</em>
         </h2>
         <p className={styles.description}>
-          Configure em menos de 5 minutos. 7 dias grátis, sem cartão. Oferta válida até {PROMO_END_LABEL}.
+          Configure em menos de 5 minutos. 7 dias grátis, sem cartão. Oferta válida até {PROMO_END_LABEL}, só {SLOTS} vagas para novos clientes.
         </p>
         <Countdown size="compact" className={styles.timer} />
         <div className={styles.buttons}>

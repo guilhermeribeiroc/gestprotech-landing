@@ -25,6 +25,9 @@
   --bf-500: #ffd60a;
   --bf-600: #f5c400;
   --bf-ink: #0a0800;
+  /* botões de ação: dourado suave, menos saturado que o amarelo de destaque */
+  --btn-bg: #e9c547;
+  --btn-bg-hover: #f1d36c;
   --bf-glow: rgba(255, 214, 10, 0.45);
   --bf-dim: rgba(255, 214, 10, 0.1);
   --bf-border: rgba(255, 214, 10, 0.34);
