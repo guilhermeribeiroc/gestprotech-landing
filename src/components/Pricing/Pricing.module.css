@@ -46,16 +46,16 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-radius: 14px;
-  background: var(--bf-500);
+  border-radius: 12px;
+  background: var(--btn-bg);
   color: var(--bf-ink);
-  font-weight: 800;
-  font-size: 1.02rem;
+  font-weight: 700;
+  font-size: 1rem;
   text-decoration: none;
-  box-shadow: 0 12px 40px -10px var(--bf-glow);
-  transition: transform 0.2s var(--ease-out), background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s var(--ease-out), background 0.2s;
 }
-.cta:hover { background: var(--bf-400); transform: translateY(-2px); box-shadow: 0 16px 50px -8px var(--bf-glow); }
+.cta:hover { background: var(--btn-bg-hover); transform: translateY(-1px); }
 .foot { margin-top: 12px; width: 100%; text-align: center; font-size: 0.82rem; color: var(--text-muted); }
 
 .listTitle { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--text-bright); margin-bottom: 18px; }

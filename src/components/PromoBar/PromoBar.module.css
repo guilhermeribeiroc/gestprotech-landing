@@ -5,7 +5,10 @@
   right: 0;
   height: var(--promo-height);
   z-index: 110;
-  background: var(--bf-500);
+  /* mesmo fundo escuro da página, com uma linha de destaque embaixo */
+  background: linear-gradient(90deg, #0a1018 0%, #101a2b 50%, #0a1018 100%);
+  border-bottom: 1px solid var(--bf-border);
+  box-shadow: 0 6px 28px -10px var(--bf-glow);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -26,18 +29,18 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--bf-ink);
+  color: var(--text-bright);
   padding: 0 14px;
   display: inline-block;
 }
 
 .tagBf {
-  background: var(--bf-ink);
-  color: var(--bf-500);
+  background: var(--bf-500);
+  color: var(--bf-ink);
   padding: 3px 10px;
   border-radius: 6px;
   letter-spacing: 0.12em;
 }
 
-.highlight { font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
-.dot { color: rgba(10, 8, 0, 0.55); font-size: 0.7rem; }
+.highlight { font-weight: 800; color: var(--bf-500); }
+.dot { color: var(--cyan-400); font-size: 0.7rem; }
