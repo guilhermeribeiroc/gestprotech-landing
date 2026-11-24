@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import Countdown from '../Countdown/Countdown';
 import {
-  REGISTER_URL, WHATSAPP_URL, PRICE_PROMO, PRICE_REGULAR, PROMO_END_LABEL, DISCOUNT_PERCENT,
+  REGISTER_URL, WHATSAPP_URL, PLAN_ANNUAL, PRICE_LIST, PRICE_UNDER, SLOTS, PROMO_END_LABEL, DISCOUNT_PERCENT,
 } from '../../config/promo';
 import styles from './Hero.module.css';
 
@@ -183,8 +183,8 @@ const Hero: React.FC = () => {
         <div className={styles.offer}>
           <span className={styles.offerTag}>-{DISCOUNT_PERCENT}%</span>
           <span>
-            <strong>1ª mensalidade por {PRICE_PROMO.full.replace(' ', ' ')}</strong>
-            <small>depois {PRICE_REGULAR.full}/mês · cancele quando quiser</small>
+            <strong>Por menos de {PRICE_UNDER}/mês</strong>
+            <small>Anual à vista: {PLAN_ANNUAL.cash.full} ({PLAN_ANNUAL.equivalent}/mês) · ou {PLAN_ANNUAL.perMonth.full}/mês com contrato</small>
           </span>
         </div>
 
@@ -218,13 +218,13 @@ const Hero: React.FC = () => {
                 <span>BLACK FRIDAY</span>
               </div>
               <div className={styles.ticketMain}>
-                <span className={styles.tkSmall}>1ª mensalidade</span>
+                <span className={styles.tkSmall}>Menos de {PRICE_UNDER}/mês</span>
                 <div className={styles.tkPrice}>
-                  <small>R$</small><b>{PRICE_PROMO.whole}</b><i>{PRICE_PROMO.cents}</i>
+                  <small>R$</small><b>{PLAN_ANNUAL.equivWhole}</b><i>{PLAN_ANNUAL.equivCents}/mês</i>
                 </div>
-                <span className={styles.tkOld}>de <s>{PRICE_REGULAR.full}</s>/mês</span>
+                <span className={styles.tkOld}>de <s>{PRICE_LIST.full}</s>/mês · anual à vista {PLAN_ANNUAL.cash.full}</span>
                 <div className={styles.barcode} />
-                <span className={styles.tkValid}>Válido até {PROMO_END_LABEL} · 7 dias grátis</span>
+                <span className={styles.tkValid}>Até {PROMO_END_LABEL} · {SLOTS} vagas · 7 dias grátis</span>
               </div>
               <span className={styles.stamp}>-{DISCOUNT_PERCENT}%</span>
             </div>

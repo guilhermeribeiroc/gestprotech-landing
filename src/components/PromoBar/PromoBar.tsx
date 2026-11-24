@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { PRICE_PROMO, PROMO_END_LABEL } from '../../config/promo';
+import { PRICE_UNDER, SLOTS, PROMO_END_LABEL } from '../../config/promo';
 import styles from './PromoBar.module.css';
 
 const PromoBar: React.FC = () => {
@@ -31,8 +31,10 @@ const PromoBar: React.FC = () => {
     <div className={styles.set} key={key} aria-hidden={key === 'b'}>
       <span className={styles.item}><b className={styles.tagBf}>Black Friday</b></span>
       <span className={styles.item}>
-        1ª mensalidade por <strong className={styles.highlight}>{PRICE_PROMO.full}</strong>
+        Por menos de <strong className={styles.highlight}>{PRICE_UNDER}/mês</strong>
       </span>
+      <span className={styles.dot}>✦</span>
+      <span className={styles.item}>Só {SLOTS} vagas para novos clientes</span>
       <span className={styles.dot}>✦</span>
       <span className={styles.item}>7 dias grátis, sem cartão</span>
       <span className={styles.dot}>✦</span>

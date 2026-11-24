@@ -79,7 +79,7 @@ function App() {
       {/* Vídeo de background com overlay radial */}
       <BackgroundVideo />
 
-      {/* Barra de promoção: primeira mensalidade por R$99,90 */}
+      {/* Barra de promoção: plano anual por R$119/mês, 25 vagas */}
       <PromoBar />
 
       {/* Navbar suspensa estilo HUD */}

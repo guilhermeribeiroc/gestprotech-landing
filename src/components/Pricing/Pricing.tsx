@@ -1,15 +1,10 @@
-import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import { CheckCircle2, Rocket, Flame } from 'lucide-react';
+import React from 'react';
+import { CheckCircle2, Rocket, Flame, Lock, Users } from 'lucide-react';
 import Countdown from '../Countdown/Countdown';
 import {
-  REGISTER_URL, PRICE_PROMO, PRICE_REGULAR, DISCOUNT_PERCENT, PROMO_END_LABEL,
+  REGISTER_URL, PLANS, PRICE_LIST, PRICE_MONTHLY, PRICE_UNDER, PROMO_END_LABEL, SLOTS, LOCK_HOURS, TRIAL_DAYS,
 } from '../../config/promo';
 import styles from './Pricing.module.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const BENEFITS = [
   { text: 'Processos e clientes ilimitados' },
@@ -25,77 +20,96 @@ const BENEFITS = [
 ];
 
 const Pricing: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    gsap.from(`.${styles.header}`, {
-      opacity: 0, y: 30, duration: 0.8,
-      scrollTrigger: { trigger: `.${styles.header}`, start: 'top 85%' },
-    });
-    gsap.from(`.${styles.card}`, {
-      opacity: 0, y: 40, scale: 0.97, duration: 0.8,
-      scrollTrigger: { trigger: `.${styles.card}`, start: 'top 85%' },
-    });
-  }, { scope: sectionRef });
-
   return (
-    <section ref={sectionRef} id="preco" className={styles.section}>
+    <section id="preco" className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.header}>
+        <div className={styles.header} data-reveal="up">
           <p className={styles.tagline}>Oferta de Black Friday</p>
           <h2 className={styles.title}>
-            Um plano. <em>Tudo incluído.</em><br />Preço de Black Friday.
+            Escolha seu plano.<br />Por <em>menos de {PRICE_UNDER}</em> ao mês.
           </h2>
           <p className={styles.description}>
-            Todos os módulos liberados desde o primeiro dia. Sem taxa de adesão e sem fidelidade.
+            Preço de Black Friday no anual à vista, com todos os módulos liberados desde o primeiro dia e sem taxa de adesão.
+            Comece com {TRIAL_DAYS} dias grátis.
           </p>
         </div>
 
-        <div className={styles.card}>
-          <div className={styles.cardGlow} aria-hidden="true" />
-
-          <div className={styles.left}>
-            <span className={styles.badge}><Flame size={13} aria-hidden="true" /> Black Friday · até {PROMO_END_LABEL}</span>
-
-            <div className={styles.priceBlock}>
-              <div className={styles.oldRow}>
-                <s className={styles.old}>{PRICE_REGULAR.full}/mês</s>
-                <span className={styles.off}>-{DISCOUNT_PERCENT}%</span>
-              </div>
-              <div className={styles.priceRow}>
-                <span className={styles.currency}>R$</span>
-                <span className={styles.amount}>{PRICE_PROMO.whole}</span>
-                <span className={styles.cents}>{PRICE_PROMO.cents}</span>
-              </div>
-              <p className={styles.period}>na 1ª mensalidade</p>
-              <p className={styles.after}>
-                Depois <strong>{PRICE_REGULAR.full}/mês</strong>. Cancele quando quiser.
-              </p>
-            </div>
-
-            <div className={styles.timer}>
-              <span>A oferta acaba em</span>
-              <Countdown size="compact" />
-            </div>
-
-            <a href={REGISTER_URL} className={styles.cta}>
-              <Rocket size={18} aria-hidden="true" /> Garantir oferta · 7 dias grátis
-            </a>
-            <p className={styles.foot}>Sem cartão para ativar. Cancele quando quiser.</p>
+        <div className={styles.urgency} data-reveal="up" data-reveal-delay={0.1}>
+          <div className={styles.urgencyTimer}>
+            <span>A oferta acaba em</span>
+            <Countdown size="compact" />
           </div>
+          <ul className={styles.rules}>
+            <li><Users size={16} aria-hidden="true" /> <span><strong>{SLOTS} vagas</strong> para clientes novos</span></li>
+            <li><Lock size={16} aria-hidden="true" /> <span>Preço travado por <strong>{LOCK_HOURS} horas</strong> ao reservar</span></li>
+          </ul>
+        </div>
 
-          <div className={styles.right}>
-            <h3 className={styles.listTitle}>O que está incluído</h3>
-            <ul className={styles.list}>
-              {BENEFITS.map((b, i) => (
-                <li key={b.text} className={b.bold ? styles.listBold : ''} data-reveal="left" data-reveal-delay={0.25 + i * 0.07}>
-                  <CheckCircle2 size={18} aria-hidden="true" />
-                  <span>{b.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className={styles.plans}>
+          {PLANS.map((p, i) => (
+            <article
+              key={p.id}
+              className={`${styles.plan} ${p.featured ? styles.featured : ''}`}
+              data-reveal="up"
+              data-reveal-delay={0.15 + i * 0.12}
+            >
+              {p.featured && <div className={styles.glow} aria-hidden="true" />}
+              <div className={styles.planTop}>
+                <h3 className={styles.planName}>Plano {p.name}</h3>
+                {p.featured
+                  ? <span className={styles.badge}><Flame size={13} aria-hidden="true" /> Melhor oferta</span>
+                  : <span className={styles.badgeSoft}>Black Friday</span>}
+              </div>
+
+              <div className={styles.option}>
+                <span className={styles.optLabel}>À vista · pagamento único</span>
+                <div className={styles.oldRow}>
+                  <s className={styles.old}>{PRICE_LIST.full}/mês</s>
+                  <span className={styles.off}>-{p.off}%</span>
+                </div>
+                <div className={styles.priceRow}>
+                  <span className={styles.currency}>R$</span>
+                  <span className={styles.amount}>{p.equivWhole}</span>
+                  {p.equivCents && <span className={styles.cents}>{p.equivCents}</span>}
+                  <span className={styles.per}>/mês</span>
+                </div>
+                {p.underHundred && <span className={styles.under}>Menos de {PRICE_UNDER} por mês</span>}
+                <p className={styles.equiv}>Total de <strong>{p.cash.full}</strong> à vista</p>
+              </div>
+
+              <div className={styles.or}><span>ou</span></div>
+
+              <div className={styles.option}>
+                <span className={styles.optLabel}>Mensal, com contrato de {p.months} meses</span>
+                <div className={styles.monthlyRow}>
+                  <span className={styles.mCurrency}>R$</span>
+                  <span className={styles.mAmount}>{p.perMonth.whole}</span>
+                  <span className={styles.mPer}>/mês</span>
+                </div>
+              </div>
+
+              <a href={REGISTER_URL} className={p.featured ? styles.cta : styles.ctaAlt}>
+                <Rocket size={17} aria-hidden="true" /> Garantir plano {p.name.toLowerCase()}
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <p className={styles.note} data-reveal="fade">
+          Oferta válida até {PROMO_END_LABEL}. Plano mensal sem contrato: {PRICE_MONTHLY.full}/mês.
+          Quem já é cliente mantém o valor atual.
+        </p>
+
+        <div className={styles.included} data-reveal="up">
+          <h3 className={styles.listTitle}>Incluído em todos os planos</h3>
+          <ul className={styles.list}>
+            {BENEFITS.map((b, i) => (
+              <li key={b.text} className={b.bold ? styles.listBold : ''} data-reveal="left" data-reveal-delay={0.05 + i * 0.05}>
+                <CheckCircle2 size={18} aria-hidden="true" />
+                <span>{b.text}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
