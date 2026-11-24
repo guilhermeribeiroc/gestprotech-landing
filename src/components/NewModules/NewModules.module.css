@@ -1,0 +1,45 @@
+.section { padding: 100px 20px 60px; }
+.container { max-width: var(--container); margin: 0 auto; }
+
+.header { text-align: center; max-width: 760px; margin: 0 auto 70px; }
+.newBadge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 999px; background: var(--bf-500); color: var(--bf-ink); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.title { margin-top: 20px; font-family: var(--font-heading); font-weight: 800; font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--text-bright); }
+.title em, .h3 em { font-family: var(--font-display); font-weight: 600; font-style: italic; color: var(--bf-500); letter-spacing: 0; font-size: 1.1em; }
+.description { margin-top: 18px; font-size: 1.08rem; color: var(--text-secondary); }
+
+.block { display: grid; grid-template-columns: 0.9fr 1.25fr; gap: 56px; align-items: center; margin-bottom: 110px; }
+.block:last-child { margin-bottom: 40px; }
+.reverse { grid-template-columns: 1.25fr 0.9fr; }
+.reverse .text { order: 2; }
+.reverse .visual { order: 1; }
+
+.text { min-width: 0; }
+.kicker { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan-300); }
+.kIcon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; background: var(--cyan-dim); border: 1px solid var(--cyan-border); }
+.novo { font-size: 0.64rem; padding: 3px 8px; border-radius: 6px; background: var(--bf-500); color: var(--bf-ink); letter-spacing: 0.1em; }
+
+.h3 { margin-top: 18px; font-family: var(--font-heading); font-weight: 800; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.1; letter-spacing: -0.025em; color: var(--text-bright); }
+.p { margin-top: 16px; font-size: 1.05rem; color: var(--text-secondary); }
+
+.tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tags span { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--bf-border); background: var(--bf-dim); color: var(--bf-400); font-size: 0.8rem; font-weight: 700; }
+
+.bullets { margin-top: 24px; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.bullets li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.99rem; line-height: 1.45; color: var(--text-bright); }
+.bullets svg { flex-shrink: 0; margin-top: 1px; color: var(--bf-500); }
+
+.cta { margin-top: 30px; display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; border-radius: 14px; background: var(--bf-500); color: var(--bf-ink); font-weight: 800; text-decoration: none; box-shadow: 0 12px 36px -10px var(--bf-glow); transition: transform 0.2s var(--ease-out), background 0.2s; }
+.cta:hover { background: var(--bf-400); transform: translateY(-2px); }
+
+.visual { position: relative; min-width: 0; }
+.glow { position: absolute; inset: 8% -4% -6%; background: radial-gradient(ellipse at center, rgba(255, 214, 10, 0.16), transparent 68%); filter: blur(40px); pointer-events: none; }
+.visual > :global(div:last-child) { position: relative; }
+
+@media (max-width: 1000px) {
+  .block, .reverse { grid-template-columns: 1fr; gap: 36px; margin-bottom: 80px; }
+  .reverse .text, .reverse .visual { order: initial; }
+}
+@media (max-width: 640px) {
+  .section { padding: 72px 16px 40px; }
+  .cta { width: 100%; justify-content: center; }
+}

@@ -6,7 +6,7 @@ import {
   Users, FolderOpen, AlarmClock, Calendar, RefreshCw, BarChart3,
   FileText, FileEdit, Kanban, Share2, FileSpreadsheet, PieChart,
   CheckCircle2, Home, Landmark, Building, MapPin, ClipboardList, Layers,
-  Newspaper
+  Newspaper, Calculator, Mail
 } from 'lucide-react';
 import styles from './Features.module.css';
 
@@ -15,12 +15,12 @@ gsap.registerPlugin(ScrollTrigger);
 interface FeatureItem {
   title: string;
   subtitle: string;
-  icon: React.ComponentType<any>;
-  iconColor: string;
-  bgGrad: string;
-  borderColor: string;
+  icon: React.ComponentType<{ size?: number; 'aria-hidden'?: boolean }>;
+  tone: 'cyan' | 'slate' | 'red' | 'blue' | 'violet' | 'amber' | 'green';
   bullets: string[];
   highlight?: boolean;
+  /** módulo novo: ganha selo "Novo módulo" */
+  isNew?: boolean;
 }
 
 const Features: React.FC = () => {
@@ -29,6 +29,7 @@ const Features: React.FC = () => {
   const imobCardRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     // Animação de fade-in e slide-up para o cabeçalho
     gsap.from(sectionRef.current?.querySelector(`.${styles.header}`) as HTMLElement, {
       opacity: 0,
@@ -72,12 +73,36 @@ const Features: React.FC = () => {
 
   const featuresList: FeatureItem[] = [
     {
+      title: "Análise Previdenciária",
+      subtitle: "Cálculos com RMI e CNIS",
+      icon: Calculator,
+      tone: "cyan",
+      isNew: true,
+      bullets: [
+        "Análise do CNIS: vínculos, tempo e carência",
+        "Cálculo da RMI com média salarial e coeficiente",
+        "Comparação entre regras de concessão e transição",
+        "Cálculos salvos no processo do cliente"
+      ]
+    },
+    {
+      title: "E-mails Exclusivos",
+      subtitle: "Um endereço para cada cliente",
+      icon: Mail,
+      tone: "violet",
+      isNew: true,
+      bullets: [
+        "Geração do e-mail exclusivo em um clique",
+        "Endereço padronizado a partir do nome do cliente",
+        "Vinculado à ficha e aos processos",
+        "Copie ou envie o endereço ao cliente"
+      ]
+    },
+    {
       title: "Gestão de Clientes",
       subtitle: "Ficha completa de cada cliente",
       icon: Users,
-      iconColor: "#14b8a6",
-      bgGrad: "linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(20, 184, 166, 0.03))",
-      borderColor: "rgba(20, 184, 166, 0.2)",
+      tone: "cyan",
       bullets: [
         "Dados pessoais: CPF, RG, nascimento, profissão",
         "Endereço, estado civil e fonte de indicação",
@@ -89,9 +114,7 @@ const Features: React.FC = () => {
       title: "Controle de Processos",
       subtitle: "Gestão jurídica completa",
       icon: FolderOpen,
-      iconColor: "#475569",
-      bgGrad: "linear-gradient(135deg, rgba(15, 36, 64, 0.06), rgba(15, 36, 64, 0.02))",
-      borderColor: "rgba(15, 36, 64, 0.1)",
+      tone: "slate",
       bullets: [
         "Esfera, área do direito e tipo de benefício",
         "Polo passivo com qualificação completa",
@@ -103,9 +126,7 @@ const Features: React.FC = () => {
       title: "Publicações por OAB",
       subtitle: "Monitoramento automático 24h",
       icon: Newspaper,
-      iconColor: "#0e7490",
-      bgGrad: "linear-gradient(135deg, rgba(45, 175, 197, 0.14), rgba(45, 175, 197, 0.03))",
-      borderColor: "rgba(45, 175, 197, 0.3)",
+      tone: "cyan",
       highlight: true,
       bullets: [
         "Busca automática de publicações pela sua OAB",
@@ -118,9 +139,7 @@ const Features: React.FC = () => {
       title: "Prazos e Compromissos",
       subtitle: "Nunca perca uma data crítica",
       icon: AlarmClock,
-      iconColor: "#f87171",
-      bgGrad: "linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.02))",
-      borderColor: "rgba(239, 68, 68, 0.18)",
+      tone: "red",
       bullets: [
         "Audiências com data, hora e modalidade",
         "Perícias médicas, sociais e judiciais",
@@ -132,9 +151,7 @@ const Features: React.FC = () => {
       title: "Agenda Inteligente",
       subtitle: "Atendimentos e compromissos",
       icon: Calendar,
-      iconColor: "#14b8a6",
-      bgGrad: "linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(20, 184, 166, 0.03))",
-      borderColor: "rgba(20, 184, 166, 0.2)",
+      tone: "cyan",
       bullets: [
         "Agendamentos presenciais e online",
         "Tipo de atendimento personalizado",
@@ -146,9 +163,7 @@ const Features: React.FC = () => {
       title: "Google Agenda Sync",
       subtitle: "Integração bidirecional completa",
       icon: RefreshCw,
-      iconColor: "#3b82f6",
-      bgGrad: "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.02))",
-      borderColor: "rgba(59, 130, 246, 0.2)",
+      tone: "blue",
       bullets: [
         "Login OAuth2 com um clique",
         "Criação automática de eventos no Google",
@@ -160,9 +175,7 @@ const Features: React.FC = () => {
       title: "Dashboard Financeiro",
       subtitle: "Controle financeiro total",
       icon: BarChart3,
-      iconColor: "#8b5cf6",
-      bgGrad: "linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.02))",
-      borderColor: "rgba(139, 92, 246, 0.18)",
+      tone: "violet",
       bullets: [
         "Honorários esperados vs. recebidos",
         "Parcelamento flexível de honorários",
@@ -174,9 +187,7 @@ const Features: React.FC = () => {
       title: "Documentos e Arquivos",
       subtitle: "Organização documental completa",
       icon: FileText,
-      iconColor: "#f59e0b",
-      bgGrad: "linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.02))",
-      borderColor: "rgba(245, 158, 11, 0.16)",
+      tone: "amber",
       bullets: [
         "Upload de arquivos por processo",
         "Pastas: Pessoal, Petições, Provas, Outros",
@@ -188,9 +199,7 @@ const Features: React.FC = () => {
       title: "Modelos e Geração de Docs",
       subtitle: "Documentos gerados automaticamente",
       icon: FileEdit,
-      iconColor: "#475569",
-      bgGrad: "linear-gradient(135deg, rgba(15, 36, 64, 0.06), rgba(15, 36, 64, 0.02))",
-      borderColor: "rgba(15, 36, 64, 0.1)",
+      tone: "slate",
       bullets: [
         "Procuração gerada com dados do processo",
         "Contrato de honorários em PDF",
@@ -202,9 +211,7 @@ const Features: React.FC = () => {
       title: "Organização em Pastas",
       subtitle: "Kanban de processos visual",
       icon: Kanban,
-      iconColor: "#3b82f6",
-      bgGrad: "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.02))",
-      borderColor: "rgba(59, 130, 246, 0.18)",
+      tone: "blue",
       bullets: [
         "Crie pastas com cores personalizadas",
         "Mova processos entre pastas com facilidade",
@@ -216,9 +223,7 @@ const Features: React.FC = () => {
       title: "Parcerias e Indicações",
       subtitle: "Controle total de repasses",
       icon: Share2,
-      iconColor: "#f59e0b",
-      bgGrad: "linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.02))",
-      borderColor: "rgba(245, 158, 11, 0.16)",
+      tone: "amber",
       bullets: [
         "Advogado parceiro por processo",
         "Percentual de indicação configurável",
@@ -230,9 +235,7 @@ const Features: React.FC = () => {
       title: "Importação e Exportação",
       subtitle: "Automatize a entrada de dados",
       icon: FileSpreadsheet,
-      iconColor: "#22c55e",
-      bgGrad: "linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.02))",
-      borderColor: "rgba(34, 197, 94, 0.18)",
+      tone: "green",
       bullets: [
         "Importe centenas de processos via Excel",
         "Mapeamento automático de colunas",
@@ -244,9 +247,7 @@ const Features: React.FC = () => {
       title: "Estatísticas e Relatórios",
       subtitle: "Dados para decisões inteligentes",
       icon: PieChart,
-      iconColor: "#8b5cf6",
-      bgGrad: "linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.02))",
-      borderColor: "rgba(139, 92, 246, 0.18)",
+      tone: "violet",
       bullets: [
         "Distribuição por área do direito",
         "Processos por status e resultado",
@@ -263,7 +264,7 @@ const Features: React.FC = () => {
         <div className={styles.header}>
           <p className={styles.tagline}>Tudo que você precisa</p>
           <h2 className={styles.title}>
-            Cada detalhe do seu escritório,<br />sob controle total.
+            Cada detalhe do escritório,<br /><em>sob controle.</em>
           </h2>
           <p className={styles.description}>
             Do primeiro atendimento ao fechamento financeiro, o GestProTech cobre cada etapa da gestão jurídica — sem precisar de outros sistemas.
@@ -277,17 +278,14 @@ const Features: React.FC = () => {
             return (
               <div
                 key={index}
-                className={`${styles.featCard} ${feat.highlight ? styles.featCardHighlight : ''}`}
+                className={`${styles.featCard} ${feat.highlight || feat.isNew ? styles.featCardHighlight : ''}`}
               >
-                {feat.highlight && (
-                  <div className={styles.highlightTag}>24h · Sem custo adicional</div>
+                {(feat.highlight || feat.isNew) && (
+                  <div className={styles.highlightTag}>{feat.isNew ? 'Novo módulo' : '24h · Sem custo adicional'}</div>
                 )}
                 <div className={styles.cardHeader}>
-                  <div
-                    className={styles.iconWrapper}
-                    style={{ background: feat.bgGrad, borderColor: feat.borderColor }}
-                  >
-                    <Icon size={22} color={feat.iconColor} />
+                  <div className={`${styles.iconWrapper} ${styles[`tone_${feat.tone}`]}`}>
+                    <Icon size={22} aria-hidden />
                   </div>
                   <div>
                     <h3 className={styles.cardTitle}>{feat.title}</h3>
@@ -297,7 +295,7 @@ const Features: React.FC = () => {
                 <div className={styles.bulletList}>
                   {feat.bullets.map((bullet, bIdx) => (
                     <div key={bIdx} className={styles.bullet}>
-                      <CheckCircle2 size={13} className={styles.checkIcon} />
+                      <CheckCircle2 size={14} className={styles.checkIcon} aria-hidden />
                       <span>{bullet}</span>
                     </div>
                   ))}

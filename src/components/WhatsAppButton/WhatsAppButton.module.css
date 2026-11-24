@@ -1,30 +1,26 @@
 .waFloat {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
-  background-color: #1DB954;
-  color: #ffffff;
-  padding: 11px 20px;
-  border-radius: 2px;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 0.82rem;
-  letter-spacing: 0.03em;
-  text-decoration: none;
-  display: flex;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 8px 24px rgba(29, 185, 84, 0.28);
-  z-index: 999;
-  transition: box-shadow 0.3s ease, transform 0.25s ease, background-color 0.25s ease;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #1fb457;
+  color: #04200f;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 10px 30px -6px rgba(31, 180, 87, 0.6);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
 }
+.waFloat:hover { transform: translateY(-3px); box-shadow: 0 14px 36px -6px rgba(31, 180, 87, 0.75); }
+.icon { flex-shrink: 0; }
 
-.waFloat:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(29, 185, 84, 0.42);
-  background-color: #17A847;
-}
-
-.icon {
-  flex-shrink: 0;
+@media (max-width: 520px) {
+  .waFloat { right: 14px; bottom: 14px; width: 56px; height: 56px; padding: 0; justify-content: center; }
+  .waFloat span { display: none; }
 }

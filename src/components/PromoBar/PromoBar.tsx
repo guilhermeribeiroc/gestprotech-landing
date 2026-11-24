@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { PRICE_PROMO, PROMO_END_LABEL } from '../../config/promo';
 import styles from './PromoBar.module.css';
 
 const PromoBar: React.FC = () => {
@@ -9,36 +10,34 @@ const PromoBar: React.FC = () => {
   const tweenRef = useRef<gsap.core.Tween | null>(null);
 
   useGSAP(() => {
-    // Entrada do HUD: desce e some o fade in
-    gsap.set(wrapRef.current, { y: -44, opacity: 0 });
-    gsap.to(wrapRef.current, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' });
-
-    // Marquee infinito — desloca exatamente a largura de um conjunto
-    const track = trackRef.current;
-    const firstSet = track?.children[0] as HTMLElement | undefined;
-    if (!track || !firstSet) return;
-
-    const setWidth = firstSet.getBoundingClientRect().width;
-    gsap.set(track, { x: 0 });
-
-    tweenRef.current = gsap.to(track, {
-      x: -setWidth,
-      duration: setWidth / 48,
-      ease: 'none',
-      repeat: -1
+    const mm = gsap.matchMedia();
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // Marquee infinito — desloca exatamente a largura de um conjunto
+      const track = trackRef.current;
+      const firstSet = track?.children[0] as HTMLElement | undefined;
+      if (!track || !firstSet) return;
+      const setWidth = firstSet.getBoundingClientRect().width;
+      tweenRef.current = gsap.to(track, {
+        x: -setWidth,
+        duration: setWidth / 55,
+        ease: 'none',
+        repeat: -1,
+      });
     });
+    return () => mm.revert();
   }, { scope: wrapRef });
 
-  const renderSet = (keyPrefix: string) => (
-    <div className={styles.set} key={keyPrefix}>
+  const renderSet = (key: string) => (
+    <div className={styles.set} key={key} aria-hidden={key === 'b'}>
+      <span className={styles.item}><b className={styles.tagBf}>Black Friday</b></span>
       <span className={styles.item}>
-        Primeira mensalidade por <strong className={styles.highlight}>R$ 99,90</strong>
+        1ª mensalidade por <strong className={styles.highlight}>{PRICE_PROMO.full}</strong>
       </span>
-      <span className={styles.dot} aria-hidden="true">•</span>
-      <span className={styles.item}>Sem cartão para ativar</span>
-      <span className={styles.dot} aria-hidden="true">•</span>
-      <span className={styles.item}>Válido por tempo limitado</span>
-      <span className={styles.dot} aria-hidden="true">•</span>
+      <span className={styles.dot}>✦</span>
+      <span className={styles.item}>7 dias grátis, sem cartão</span>
+      <span className={styles.dot}>✦</span>
+      <span className={styles.item}>Oferta até {PROMO_END_LABEL}</span>
+      <span className={styles.dot}>✦</span>
     </div>
   );
 
@@ -52,6 +51,7 @@ const PromoBar: React.FC = () => {
       <div ref={trackRef} className={styles.track}>
         {renderSet('a')}
         {renderSet('b')}
+        {renderSet('c')}
       </div>
     </div>
   );

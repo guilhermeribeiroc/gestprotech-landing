@@ -14,9 +14,9 @@ const Footer: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Coluna 1: Brand */}
-          <div className={styles.brandCol}>
+          <div className={styles.brandCol} data-reveal="up">
             <div className={styles.logoRow}>
-              <img src="/LOGOGEST.png" alt="GestProTech" className={styles.logoImg} />
+              <img src="/LOGOGEST.png" alt="" className={styles.logoImg} />
               <span className={styles.brandName}>GestProTech</span>
             </div>
             <p className={styles.brandDesc}>
@@ -30,17 +30,17 @@ const Footer: React.FC = () => {
             >
               <span className={styles.creatorLabel}>Feito por</span>
               <span className={styles.creatorName}>OtimizaAÍ</span>
-              <ArrowUpRight size={10} className={styles.arrowIcon} />
+              <ArrowUpRight size={12} className={styles.arrowIcon} aria-hidden />
             </a>
           </div>
 
           {/* Coluna 2: Plataforma */}
-          <div>
+          <div data-reveal="up" data-reveal-delay="0.12">
             <h4 className={styles.titleCol}>Plataforma</h4>
             <ul className={styles.linksList}>
               <li><a href="#features" className={styles.linkItem}>Funcionalidades</a></li>
               <li><a href="#demo" className={styles.linkItem}>Ver o Sistema</a></li>
-              <li><a href="#preco" className={styles.linkItem}>Preço</a></li>
+              <li><a href="#preco" className={styles.linkItem}>Oferta Black Friday</a></li>
               <li>
                 <a 
                   href="https://gestprotech.com.br/registrar/" 
@@ -53,17 +53,16 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Coluna 3: Contatos */}
-          <div>
+          <div data-reveal="up" data-reveal-delay="0.24">
             <h4 className={styles.titleCol}>Contato</h4>
             <div className={styles.contactsList}>
               <a 
                 href="https://wa.me/5588993699357" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={styles.contactCard}
-                style={{ background: 'rgba(37, 211, 102, 0.08)', border: '1px solid rgba(37, 211, 102, 0.18)' }}
+                className={`${styles.contactCard} ${styles.contactWa}`}
               >
-                <div className={styles.iconBox} style={{ background: '#25d366' }}>
+                <div className={`${styles.iconBox} ${styles.iconWa}`}>
                   <WhatsAppIcon />
                 </div>
                 <div className={styles.contactInfo}>
@@ -74,10 +73,9 @@ const Footer: React.FC = () => {
 
               <a 
                 href="mailto:contato@otimizai.net.br" 
-                className={styles.contactCard}
-                style={{ background: 'rgba(45, 212, 191, 0.06)', border: '1px solid rgba(45, 212, 191, 0.14)' }}
+                className={`${styles.contactCard} ${styles.contactMail}`}
               >
-                <div className={styles.iconBox} style={{ background: 'linear-gradient(135deg, var(--teal-500), var(--teal-400))' }}>
+                <div className={`${styles.iconBox} ${styles.iconMail}`}>
                   <Mail size={16} />
                 </div>
                 <div className={styles.contactInfo}>
@@ -93,7 +91,7 @@ const Footer: React.FC = () => {
         <div className={styles.divider}></div>
 
         {/* Bottom Row */}
-        <div className={styles.bottomRow}>
+        <div className={styles.bottomRow} data-reveal="fade">
           <div className={styles.copyrightText}>
             © 2026 <a href="https://otimizai.net.br" target="_blank" rel="noopener noreferrer">OtimizaAÍ</a>. Todos os direitos reservados.
           </div>

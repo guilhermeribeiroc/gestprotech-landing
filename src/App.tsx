@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 // Registra ScrollTrigger globalmente no GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -11,7 +12,9 @@ import BackgroundVideo from './components/BackgroundVideo/BackgroundVideo';
 import PromoBar from './components/PromoBar/PromoBar';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
+import TapeBand from './components/TapeBand/TapeBand';
 import Stats from './components/Stats/Stats';
+import NewModules from './components/NewModules/NewModules';
 import Features from './components/Features/Features';
 import InteractiveTabs from './components/InteractiveTabs/InteractiveTabs';
 import Pricing from './components/Pricing/Pricing';
@@ -20,6 +23,8 @@ import Footer from './components/Footer/Footer';
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
 
 function App() {
+  useScrollReveal();
+
   useEffect(() => {
     // Inicializa a rolagem inercial suave Lenis
     const lenis = new Lenis({
@@ -50,6 +55,25 @@ function App() {
     };
   }, []);
 
+  // O layout muda depois do primeiro render (telas do sistema se ajustam à largura, fontes carregam).
+  // Sem recalcular, as animações de rolagem disparam fora de hora e seções ficam em branco.
+  useEffect(() => {
+    let timer: number | undefined;
+    const refresh = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => ScrollTrigger.refresh(), 150);
+    };
+    const ro = new ResizeObserver(refresh);
+    ro.observe(document.body);
+    window.addEventListener('load', refresh);
+    document.fonts?.ready.then(refresh);
+    return () => {
+      window.clearTimeout(timer);
+      ro.disconnect();
+      window.removeEventListener('load', refresh);
+    };
+  }, []);
+
   return (
     <>
       {/* Vídeo de background com overlay radial */}
@@ -65,10 +89,16 @@ function App() {
         {/* Painel Hero,Headline e mockup */}
         <Hero />
         
+        {/* Fitas cruzadas de Black Friday */}
+        <TapeBand />
+
         {/* Métricas que contam progressivamente */}
         <Stats />
         
-        {/* Grid de 12 Funcionalidades + Modo Imobiliário */}
+        {/* Módulos novos: análise previdenciária e e-mails exclusivos */}
+        <NewModules />
+
+        {/* Grid de funcionalidades + Modo Imobiliário */}
         <Features />
         
         {/* Simulador Interativo do Sistema com rotador de 4s */}

@@ -2,120 +2,99 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Star, CheckCircle2, Rocket } from 'lucide-react';
+import { CheckCircle2, Rocket, Flame } from 'lucide-react';
+import Countdown from '../Countdown/Countdown';
+import {
+  REGISTER_URL, PRICE_PROMO, PRICE_REGULAR, DISCOUNT_PERCENT, PROMO_END_LABEL,
+} from '../../config/promo';
 import styles from './Pricing.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const BENEFITS = [
+  { text: 'Processos e clientes ilimitados' },
+  { text: 'Agenda com Google Calendar sync' },
+  { text: 'Dashboard financeiro completo' },
+  { text: 'Documentos, modelos e procurações' },
+  { text: 'Importação e exportação via Excel' },
+  { text: 'Organização em pastas e kanban' },
+  { text: 'Publicações por OAB, 24h, sem custo extra', bold: true },
+  { text: 'Armazenamento ilimitado na nuvem', bold: true },
+  { text: 'Suporte VIP prioritário', bold: true },
+  { text: 'Modo Imobiliário incluso', bold: true },
+];
+
 const Pricing: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    // Fade-in para o cabeçalho
-    gsap.from(sectionRef.current?.querySelector(`.${styles.header}`) as HTMLElement, {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: sectionRef.current?.querySelector(`.${styles.header}`) as HTMLElement,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.from(`.${styles.header}`, {
+      opacity: 0, y: 30, duration: 0.8,
+      scrollTrigger: { trigger: `.${styles.header}`, start: 'top 85%' },
     });
-
-    // Fade-in e scale sutil para o card de preço
-    gsap.from(cardRef.current, {
-      opacity: 0,
-      scale: 0.96,
-      y: 40,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: cardRef.current,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      }
+    gsap.from(`.${styles.card}`, {
+      opacity: 0, y: 40, scale: 0.97, duration: 0.8,
+      scrollTrigger: { trigger: `.${styles.card}`, start: 'top 85%' },
     });
   }, { scope: sectionRef });
 
-  const benefits = [
-    { text: "Processos e clientes ilimitados", bold: false },
-    { text: "Agenda com Google Calendar sync", bold: false },
-    { text: "Dashboard financeiro completo", bold: false },
-    { text: "Documentos, modelos e procurações", bold: false },
-    { text: "Importação e exportação via Excel", bold: false },
-    { text: "Organização em pastas e kanban", bold: false },
-    { text: "Armazenamento ilimitado na nuvem", bold: true },
-    { text: "Suporte VIP prioritário", bold: true },
-    { text: "Modo Imobiliário incluso", bold: true }
-  ];
-
   return (
-    <section ref={sectionRef} id="preco" className={styles.pricingSection}>
+    <section ref={sectionRef} id="preco" className={styles.section}>
       <div className={styles.container}>
-        {/* Header */}
         <div className={styles.header}>
-          <p className={styles.tagline}>Preço simples e justo</p>
+          <p className={styles.tagline}>Oferta de Black Friday</p>
           <h2 className={styles.title}>
-            Tudo incluído.<br />Sem surpresas.
+            Um plano. <em>Tudo incluído.</em><br />Preço de Black Friday.
           </h2>
           <p className={styles.description}>
-            Um único plano com acesso a todos os módulos — para o escritório que quer crescer sem limite.
+            Todos os módulos liberados desde o primeiro dia. Sem taxa de adesão e sem fidelidade.
           </p>
         </div>
 
-        {/* Pricing Card */}
-        <div className={styles.cardWrapper}>
-          <div ref={cardRef} className={styles.priceCard}>
+        <div className={styles.card}>
+          <div className={styles.cardGlow} aria-hidden="true" />
 
-            {/* Badge */}
-            <div className={styles.badgeWrapper}>
-              <span className={styles.planBadge}>
-                <Star size={11} fill="currentColor" /> Plano Completo — Todos os Módulos
-              </span>
-            </div>
+          <div className={styles.left}>
+            <span className={styles.badge}><Flame size={13} aria-hidden="true" /> Black Friday · até {PROMO_END_LABEL}</span>
 
-            {/* Price Detail */}
-            <div className={styles.priceHeader}>
-              <div className={styles.originalPriceRow}>
-                <span className={styles.originalPrice}>R$ 129,90/mês</span>
-                <span className={styles.discountTag}>-23%</span>
+            <div className={styles.priceBlock}>
+              <div className={styles.oldRow}>
+                <s className={styles.old}>{PRICE_REGULAR.full}/mês</s>
+                <span className={styles.off}>-{DISCOUNT_PERCENT}%</span>
               </div>
               <div className={styles.priceRow}>
                 <span className={styles.currency}>R$</span>
-                <span className={styles.amount}>99</span>
-                <div className={styles.centRow}>
-                  <span className={styles.cents}>,90</span>
-                  <span className={styles.period}>1ª mensalidade</span>
-                </div>
+                <span className={styles.amount}>{PRICE_PROMO.whole}</span>
+                <span className={styles.cents}>{PRICE_PROMO.cents}</span>
               </div>
-              <p className={styles.dailyCost}>
-                Depois, <strong className={styles.dailyCostHighlight}>R$ 129,90/mês</strong> — cancele quando quiser
+              <p className={styles.period}>na 1ª mensalidade</p>
+              <p className={styles.after}>
+                Depois <strong>{PRICE_REGULAR.full}/mês</strong>. Cancele quando quiser.
               </p>
             </div>
 
-            {/* Benefits List */}
-            <div className={styles.bulletsList}>
-              {benefits.map((benefit, idx) => (
-                <div key={idx} className={styles.bulletItem}>
-                  <CheckCircle2 size={16} className={styles.bulletIcon} />
-                  {benefit.bold ? (
-                    <span className={styles.boldText}>{benefit.text}</span>
-                  ) : (
-                    <span>{benefit.text}</span>
-                  )}
-                </div>
-              ))}
+            <div className={styles.timer}>
+              <span>A oferta acaba em</span>
+              <Countdown size="compact" />
             </div>
 
-            {/* CTA CTA */}
-            <a 
-              href="https://gestprotech.com.br/registrar/" 
-              className={styles.ctaBtn}
-            >
-              <Rocket size={16} fill="currentColor" /> Começar Agora — 7 Dias Grátis
+            <a href={REGISTER_URL} className={styles.cta}>
+              <Rocket size={18} aria-hidden="true" /> Garantir oferta · 7 dias grátis
             </a>
-            <p className={styles.footNote}>Sem cartão para ativar. Cancele quando quiser.</p>
+            <p className={styles.foot}>Sem cartão para ativar. Cancele quando quiser.</p>
+          </div>
+
+          <div className={styles.right}>
+            <h3 className={styles.listTitle}>O que está incluído</h3>
+            <ul className={styles.list}>
+              {BENEFITS.map((b, i) => (
+                <li key={b.text} className={b.bold ? styles.listBold : ''} data-reveal="left" data-reveal-delay={0.25 + i * 0.07}>
+                  <CheckCircle2 size={18} aria-hidden="true" />
+                  <span>{b.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
