@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Rocket, Flame, Lock, Users } from 'lucide-react';
+import { CheckCircle2, Rocket, Flame, Lock, Users, Gift } from 'lucide-react';
 import Countdown from '../Countdown/Countdown';
 import {
   REGISTER_URL, PLANS, PRICE_LIST, PRICE_MONTHLY, PRICE_UNDER, PROMO_END_LABEL, SLOTS, LOCK_HOURS, TRIAL_DAYS,
@@ -74,19 +74,32 @@ const Pricing: React.FC = () => {
                   <span className={styles.per}>/mês</span>
                 </div>
                 {p.underHundred && <span className={styles.under}>Menos de {PRICE_UNDER} por mês</span>}
-                <p className={styles.equiv}>Total de <strong>{p.cash.full}</strong> à vista</p>
+                <p className={styles.equiv}>Total de <strong>{p.cash.full}</strong> à vista (Pix, boleto ou cartão)</p>
               </div>
 
-              <div className={styles.or}><span>ou</span></div>
+              {p.installments ? (
+                <>
+                  <div className={styles.or}><span>ou</span></div>
+                  <div className={styles.option}>
+                    <span className={styles.optLabel}>
+                      Parcelado no Pix ou boleto · fidelidade de {p.installments.lockMonths} meses
+                    </span>
+                    <div className={styles.monthlyRow}>
+                      <span className={styles.mAmount}>{p.installments.count}x</span>
+                      <span className={styles.mCurrency}>{p.installments.value}</span>
+                    </div>
+                    <p className={styles.equiv}>Total de <strong>{p.installments.total}</strong></p>
+                  </div>
+                </>
+              ) : null}
 
-              <div className={styles.option}>
-                <span className={styles.optLabel}>Mensal, com contrato de {p.months} meses</span>
-                <div className={styles.monthlyRow}>
-                  <span className={styles.mCurrency}>R$</span>
-                  <span className={styles.mAmount}>{p.perMonth.whole}</span>
-                  <span className={styles.mPer}>/mês</span>
-                </div>
-              </div>
+              {p.perks && (
+                <ul className={styles.perks}>
+                  {p.perks.map((perk) => (
+                    <li key={perk}><Gift size={15} aria-hidden="true" /> {perk}</li>
+                  ))}
+                </ul>
+              )}
 
               <a href={REGISTER_URL} className={p.featured ? styles.cta : styles.ctaAlt}>
                 <Rocket size={17} aria-hidden="true" /> Garantir plano {p.name.toLowerCase()}

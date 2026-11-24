@@ -27,7 +27,7 @@
 .rules strong { color: var(--text-bright); }
 
 /* cartões de plano */
-.plans { display: grid; grid-template-columns: 1.08fr 1fr; gap: 20px; align-items: stretch; }
+.plans { display: grid; grid-template-columns: 1.08fr 1fr; gap: 20px; align-items: start; }
 
 .plan {
   position: relative;
@@ -69,12 +69,12 @@
 .or::before, .or::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 
 .monthlyRow { display: flex; align-items: baseline; gap: 5px; margin-top: 6px; color: var(--text-bright); }
-.mCurrency { font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; }
+.mCurrency { font-family: var(--font-heading); font-weight: 800; font-size: 1.9rem; letter-spacing: -0.03em; }
 .mAmount { font-family: var(--font-heading); font-weight: 800; font-size: 2.6rem; line-height: 1; letter-spacing: -0.04em; }
 .mPer { font-size: 1rem; color: var(--text-secondary); }
 
 .cta, .ctaAlt {
-  margin-top: auto;
+  margin-top: 28px;
   width: 100%;
   min-height: 54px;
   display: inline-flex;
@@ -87,12 +87,14 @@
   text-decoration: none;
   transition: transform 0.2s var(--ease-out), background 0.2s, border-color 0.2s;
 }
-.plan .option:last-of-type { margin-bottom: 28px; }
 .cta { background: var(--btn-bg); color: var(--bf-ink); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); }
 .cta:hover { background: var(--btn-bg-hover); transform: translateY(-1px); }
 .ctaAlt { background: rgba(255, 255, 255, 0.04); color: var(--text-bright); border: 1px solid var(--line-strong); }
 .ctaAlt:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--bf-border); transform: translateY(-1px); }
 
+.perks { list-style: none; margin-top: 22px; padding: 14px 16px; border-radius: 12px; background: var(--bf-dim); border: 1px solid var(--bf-border); display: flex; flex-direction: column; gap: 8px; }
+.perks li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; color: var(--text-bright); }
+.perks svg { flex-shrink: 0; color: var(--bf-500); }
 .note { margin-top: 20px; text-align: center; font-size: 0.86rem; color: var(--text-muted); }
 
 /* benefícios */

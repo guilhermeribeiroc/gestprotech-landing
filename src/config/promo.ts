@@ -21,42 +21,41 @@ export const PRICE_LIST = { full: 'R$ 199' };
 export const PRICE_MONTHLY = { full: 'R$ 159' };
 export const PRICE_UNDER = 'R$ 100'; // destaque: o anual à vista sai por menos disso ao mês
 
-// Planos da Black Friday
+// Planos da Black Friday (valores iguais aos do sistema)
 export interface BfPlan {
   id: 'anual' | 'semestral';
   name: string;
-  months: number;
-  cash: { whole: string; full: string }; // à vista
-  perMonth: { whole: string; full: string }; // mensal com contrato
+  cash: { whole: string; full: string }; // à vista (Pix, boleto ou cartão)
   equivalent: string; // à vista dividido pelos meses
   equivWhole: string;
   equivCents: string;
   off: number; // % de desconto do equivalente mensal sobre o preço de tabela (R$ 199)
   underHundred?: boolean;
   featured?: boolean;
+  // parcelado no Pix ou boleto, com fidelidade
+  installments?: { count: number; value: string; total: string; lockMonths: number };
+  perks?: string[]; // brindes
 }
 
 export const PLAN_ANNUAL: BfPlan = {
   id: 'anual',
   name: 'Anual',
-  months: 12,
   cash: { whole: '1.199', full: 'R$ 1.199' },
-  perMonth: { whole: '119', full: 'R$ 119' },
-  equivalent: 'R$99,92', // 1.199 / 12
+  equivalent: 'R$ 99,92', // 1.199 / 12
   equivWhole: '99',
   equivCents: ',92',
   off: 50, // 99,92 vs 199 = 49,8%
   underHundred: true,
   featured: true,
+  installments: { count: 12, value: 'R$ 99,92', total: 'R$ 1.199,04', lockMonths: 12 },
+  perks: ['Importação dos cadastros grátis', '1 hora de treinamento individual'],
 };
 
 export const PLAN_SEMESTRAL: BfPlan = {
   id: 'semestral',
   name: 'Semestral',
-  months: 6,
   cash: { whole: '690', full: 'R$ 690' },
-  perMonth: { whole: '129', full: 'R$ 129' },
-  equivalent: 'R$115', // 690 / 6
+  equivalent: 'R$ 115', // 690 / 6
   equivWhole: '115',
   equivCents: '',
   off: 42, // 115 vs 199 = 42,2%
@@ -64,7 +63,5 @@ export const PLAN_SEMESTRAL: BfPlan = {
 
 export const PLANS: BfPlan[] = [PLAN_ANNUAL, PLAN_SEMESTRAL];
 
-// Desconto principal da campanha: anual à vista (R$ 99,92/mês) sobre o preço de tabela (R$ 199)
+// Desconto principal da campanha: anual (R$ 99,92/mês) sobre o preço de tabela (R$ 199)
 export const DISCOUNT_PERCENT = 50; // 49,8% arredondado
-// Anual com contrato (R$ 119/mês) sobre o preço de tabela
-export const DISCOUNT_CONTRACT = 40; // 40,2%

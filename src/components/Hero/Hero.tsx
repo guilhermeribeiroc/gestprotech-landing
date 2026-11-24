@@ -184,7 +184,7 @@ const Hero: React.FC = () => {
           <span className={styles.offerTag}>-{DISCOUNT_PERCENT}%</span>
           <span>
             <strong>Por menos de {PRICE_UNDER}/mês</strong>
-            <small>Anual à vista: {PLAN_ANNUAL.cash.full} ({PLAN_ANNUAL.equivalent}/mês) · ou {PLAN_ANNUAL.perMonth.full}/mês com contrato</small>
+            <small>Anual: {PLAN_ANNUAL.installments?.count}x de {PLAN_ANNUAL.installments?.value} ou {PLAN_ANNUAL.cash.full} à vista</small>
           </span>
         </div>
 
@@ -222,7 +222,7 @@ const Hero: React.FC = () => {
                 <div className={styles.tkPrice}>
                   <small>R$</small><b>{PLAN_ANNUAL.equivWhole}</b><i>{PLAN_ANNUAL.equivCents}/mês</i>
                 </div>
-                <span className={styles.tkOld}>de <s>{PRICE_LIST.full}</s>/mês · anual à vista {PLAN_ANNUAL.cash.full}</span>
+                <span className={styles.tkOld}>de <s>{PRICE_LIST.full}</s>/mês · {PLAN_ANNUAL.installments?.count}x ou {PLAN_ANNUAL.cash.full} à vista</span>
                 <div className={styles.barcode} />
                 <span className={styles.tkValid}>Até {PROMO_END_LABEL} · {SLOTS} vagas · 7 dias grátis</span>
               </div>
